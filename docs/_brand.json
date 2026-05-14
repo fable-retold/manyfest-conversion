@@ -1,0 +1,18 @@
+{
+	"Hash": "manyfest-conversion",
+	"Name": "Manyfest Conversion",
+	"Tagline": "Build mapping manyfests from CSVs, then fill PDF forms and XLSX spreadsheets from platform JSON payloads.",
+	"Palette": "mix",
+	"Icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 96\" width=\"96\" height=\"96\">\n\t\t<defs>\n\t\t\t<clipPath id=\"frame-manyfest-conversion-filled-light\">\n\t\t\t\t<path d=\"M 2 48\n\t\t\tC 2 18.0222416, 18.0222416 2, 48 2\n\t\t\tC 77.9777584 2, 94 18.0222416, 94 48\n\t\t\tC 94 77.9777584, 77.9777584 94, 48 94\n\t\t\tC 18.0222416 94, 2 77.9777584, 2 48 Z\"/>\n\t\t\t</clipPath>\n\t\t</defs>\n\t\t<path d=\"M 2 48\n\t\t\tC 2 18.0222416, 18.0222416 2, 48 2\n\t\t\tC 77.9777584 2, 94 18.0222416, 94 48\n\t\t\tC 94 77.9777584, 77.9777584 94, 48 94\n\t\t\tC 18.0222416 94, 2 77.9777584, 2 48 Z\" fill=\"#d726f4\"/>\n\t\t<g clip-path=\"url(#frame-manyfest-conversion-filled-light)\"><circle cx=\"48\" cy=\"48\" r=\"39\" fill=\"#59abe1\" opacity=\"0.85\"/>\n\t\t\t\t\t<circle cx=\"48\" cy=\"48\" r=\"28\" fill=\"rgba(255,255,255,0.18)\"/></g>\n\t\t<text x=\"48\" y=\"50\" text-anchor=\"middle\" dominant-baseline=\"central\"\n\t\t\tfont-family=\"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif\"\n\t\t\tfont-size=\"38\" font-weight=\"700\"\n\t\t\tfill=\"#ffffff\" letter-spacing=\"-1\">MC</text>\n\t</svg>",
+	"IconType": "svg",
+	"Favicon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 96\" width=\"96\" height=\"96\">\n\t\t<defs>\n\t\t\t<clipPath id=\"fav-manyfest-conversion-light\">\n\t\t\t\t<path d=\"M 2 48\n\t\t\tC 2 18.0222416, 18.0222416 2, 48 2\n\t\t\tC 77.9777584 2, 94 18.0222416, 94 48\n\t\t\tC 94 77.9777584, 77.9777584 94, 48 94\n\t\t\tC 18.0222416 94, 2 77.9777584, 2 48 Z\"/>\n\t\t\t</clipPath>\n\t\t</defs>\n\t\t<path d=\"M 2 48\n\t\t\tC 2 18.0222416, 18.0222416 2, 48 2\n\t\t\tC 77.9777584 2, 94 18.0222416, 94 48\n\t\t\tC 94 77.9777584, 77.9777584 94, 48 94\n\t\t\tC 18.0222416 94, 2 77.9777584, 2 48 Z\" fill=\"#d726f4\"/>\n\t\t<g clip-path=\"url(#fav-manyfest-conversion-light)\"><circle cx=\"48\" cy=\"48\" r=\"43\" fill=\"rgba(255,255,255,0.22)\"/></g>\n\t\t<text x=\"48\" y=\"50\" text-anchor=\"middle\" dominant-baseline=\"central\"\n\t\t\tfont-family=\"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif\"\n\t\t\tfont-size=\"60\" font-weight=\"800\"\n\t\t\tfill=\"#ffffff\" letter-spacing=\"-1\">M</text>\n\t</svg>",
+	"FaviconDark": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 96 96\" width=\"96\" height=\"96\">\n\t\t<defs>\n\t\t\t<clipPath id=\"fav-manyfest-conversion-dark\">\n\t\t\t\t<path d=\"M 2 48\n\t\t\tC 2 18.0222416, 18.0222416 2, 48 2\n\t\t\tC 77.9777584 2, 94 18.0222416, 94 48\n\t\t\tC 94 77.9777584, 77.9777584 94, 48 94\n\t\t\tC 18.0222416 94, 2 77.9777584, 2 48 Z\"/>\n\t\t\t</clipPath>\n\t\t</defs>\n\t\t<path d=\"M 2 48\n\t\t\tC 2 18.0222416, 18.0222416 2, 48 2\n\t\t\tC 77.9777584 2, 94 18.0222416, 94 48\n\t\t\tC 94 77.9777584, 77.9777584 94, 48 94\n\t\t\tC 18.0222416 94, 2 77.9777584, 2 48 Z\" fill=\"#e482f4\"/>\n\t\t<g clip-path=\"url(#fav-manyfest-conversion-dark)\"><circle cx=\"48\" cy=\"48\" r=\"43\" fill=\"rgba(255,255,255,0.22)\"/></g>\n\t\t<text x=\"48\" y=\"50\" text-anchor=\"middle\" dominant-baseline=\"central\"\n\t\t\tfont-family=\"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif\"\n\t\t\tfont-size=\"60\" font-weight=\"800\"\n\t\t\tfill=\"#101418\" letter-spacing=\"-1\">M</text>\n\t</svg>",
+	"Colors": {
+		"Primary": "#d726f4",
+		"Secondary": "#59abe1",
+		"PrimaryLight": "#d726f4",
+		"PrimaryDark": "#e482f4",
+		"SecondaryLight": "#59abe1",
+		"SecondaryDark": "#a9d2ec"
+	}
+}
