@@ -1,146 +1,185 @@
 {
-	"Generated": "2026-05-04T04:36:57.928Z",
+	"Generated": "2026-05-22T05:48:26.174Z",
+	"Mode": "module",
 	"GitHubOrg": "stevenvelozo",
 	"DefaultBranch": "master",
-	"Groups": [
-		{
-			"Name": "Debug",
-			"Key": "debug",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "dist",
-					"Repo": "dist",
-					"Group": "debug",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				}
-			]
-		},
-		{
-			"Name": "Dist",
-			"Key": "dist",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "indoctrinate_content_staging",
-					"Repo": "indoctrinate_content_staging",
-					"Group": "dist",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				}
-			]
-		},
-		{
-			"Name": "Docs",
-			"Key": "docs",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "api",
-					"Repo": "api",
-					"Group": "docs",
-					"Branch": "master",
-					"HasDocs": true,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": [
-						"api/conversion-report.md",
-						"api/mapping-manyfest-builder.md",
-						"api/pdf-form-filler.md",
-						"api/xlsx-form-filler.md"
-					]
-				},
-				{
-					"Name": "cli",
-					"Repo": "cli",
-					"Group": "docs",
-					"Branch": "master",
-					"HasDocs": true,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": [
-						"cli/build-mappings.md",
-						"cli/convert-batch.md",
-						"cli/extract-fields.md",
-						"cli/fill-pdf.md",
-						"cli/fill-xlsx.md",
-						"cli/overview.md"
-					]
-				},
-				{
-					"Name": "css",
-					"Repo": "css",
-					"Group": "docs",
-					"Branch": "master",
-					"HasDocs": true,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": [
-						"css/docuserve.css"
-					]
-				},
-				{
-					"Name": "examples",
-					"Repo": "examples",
-					"Group": "docs",
-					"Branch": "master",
-					"HasDocs": true,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": [
-						"examples/README.md",
-						"examples/bookstore-acquisition.md",
-						"examples/data/bookstore/built-mappings/AcquisitionOrder.pdf.mapping.json",
-						"examples/data/bookstore/built-mappings/InventorySheet.xlsx.mapping.json",
-						"examples/data/bookstore/built-mappings/build-report.json",
-						"examples/data/bookstore/mappings.csv",
-						"examples/data/bookstore/source.json",
-						"examples/data/irs-w9/built-mappings/build-report.json",
-						"examples/data/irs-w9/built-mappings/fw9.pdf.mapping.json",
-						"examples/data/irs-w9/mappings.csv",
-						"examples/data/irs-w9/source.json",
-						"examples/data/library/built-mappings/CatalogInventory.xlsx.mapping.json",
-						"examples/data/library/mappings.csv",
-						"examples/data/library/source.json",
-						"examples/irs-w9.md",
-						"examples/library-catalog.md"
-					]
-				}
-			]
-		},
-		{
-			"Name": "Source",
-			"Key": "source",
-			"Description": "",
-			"Modules": [
-				{
-					"Name": "cli",
-					"Repo": "cli",
-					"Group": "source",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				},
-				{
-					"Name": "services",
-					"Repo": "services",
-					"Group": "source",
-					"Branch": "master",
-					"HasDocs": false,
-					"HasCover": false,
-					"Sidebar": [],
-					"DocFiles": []
-				}
-			]
-		}
-	]
+	"Module": {
+		"Name": "manyfest-conversion",
+		"Repo": "manyfest-conversion",
+		"Group": "",
+		"Branch": "master",
+		"HasDocs": true,
+		"HasCover": true,
+		"Sidebar": [
+			{
+				"Title": "Getting Started",
+				"Children": [
+					{
+						"Title": "Introduction",
+						"Path": "README.md"
+					},
+					{
+						"Title": "Overview",
+						"Path": "overview.md"
+					},
+					{
+						"Title": "Quick Start",
+						"Path": "quickstart.md"
+					}
+				]
+			},
+			{
+				"Title": "Architecture",
+				"Children": [
+					{
+						"Title": "Design",
+						"Path": "architecture.md"
+					},
+					{
+						"Title": "Implementation Reference",
+						"Path": "implementation-reference.md"
+					}
+				]
+			},
+			{
+				"Title": "Mapping Manyfests",
+				"Children": [
+					{
+						"Title": "Mapping Manyfest Format",
+						"Path": "mapping-manyfest-format.md"
+					},
+					{
+						"Title": "Source Address Syntax",
+						"Path": "source-address-syntax.md"
+					},
+					{
+						"Title": "Target Cell and Range Syntax",
+						"Path": "target-cell-syntax.md"
+					},
+					{
+						"Title": "Sidecar Reports",
+						"Path": "sidecar-reports.md"
+					}
+				]
+			},
+			{
+				"Title": "CLI Reference",
+				"Children": [
+					{
+						"Title": "CLI Overview",
+						"Path": "cli/overview.md"
+					},
+					{
+						"Title": "extract-fields",
+						"Path": "cli/extract-fields.md"
+					},
+					{
+						"Title": "build-mappings",
+						"Path": "cli/build-mappings.md"
+					},
+					{
+						"Title": "fill-pdf",
+						"Path": "cli/fill-pdf.md"
+					},
+					{
+						"Title": "fill-xlsx",
+						"Path": "cli/fill-xlsx.md"
+					},
+					{
+						"Title": "convert-batch",
+						"Path": "cli/convert-batch.md"
+					}
+				]
+			},
+			{
+				"Title": "API Reference",
+				"Children": [
+					{
+						"Title": "MappingManyfestBuilder",
+						"Path": "api/mapping-manyfest-builder.md"
+					},
+					{
+						"Title": "PDFFormFiller",
+						"Path": "api/pdf-form-filler.md"
+					},
+					{
+						"Title": "XLSXFormFiller",
+						"Path": "api/xlsx-form-filler.md"
+					},
+					{
+						"Title": "ConversionReport",
+						"Path": "api/conversion-report.md"
+					}
+				]
+			},
+			{
+				"Title": "Examples",
+				"Children": [
+					{
+						"Title": "Examples Walkthrough",
+						"Path": "examples/README.md"
+					},
+					{
+						"Title": "Bookstore Acquisition Order",
+						"Path": "examples/bookstore-acquisition.md"
+					},
+					{
+						"Title": "Library Catalog Inventory",
+						"Path": "examples/library-catalog.md"
+					},
+					{
+						"Title": "IRS W-9 Form",
+						"Path": "examples/irs-w9.md"
+					}
+				]
+			}
+		],
+		"DocFiles": [
+			".nojekyll",
+			"README.md",
+			"_brand.json",
+			"_cover.md",
+			"_sidebar.md",
+			"_topbar.md",
+			"_version.json",
+			"api/conversion-report.md",
+			"api/mapping-manyfest-builder.md",
+			"api/pdf-form-filler.md",
+			"api/xlsx-form-filler.md",
+			"architecture.md",
+			"cli/build-mappings.md",
+			"cli/convert-batch.md",
+			"cli/extract-fields.md",
+			"cli/fill-pdf.md",
+			"cli/fill-xlsx.md",
+			"cli/overview.md",
+			"examples/README.md",
+			"examples/bookstore-acquisition.md",
+			"examples/data/bookstore/built-mappings/AcquisitionOrder.pdf.mapping.json",
+			"examples/data/bookstore/built-mappings/InventorySheet.xlsx.mapping.json",
+			"examples/data/bookstore/built-mappings/build-report.json",
+			"examples/data/bookstore/mappings.csv",
+			"examples/data/bookstore/source.json",
+			"examples/data/irs-w9/built-mappings/build-report.json",
+			"examples/data/irs-w9/built-mappings/fw9.pdf.mapping.json",
+			"examples/data/irs-w9/mappings.csv",
+			"examples/data/irs-w9/source.json",
+			"examples/data/library/built-mappings/CatalogInventory.xlsx.mapping.json",
+			"examples/data/library/mappings.csv",
+			"examples/data/library/source.json",
+			"examples/irs-w9.md",
+			"examples/library-catalog.md",
+			"implementation-reference.md",
+			"index.html",
+			"mapping-manyfest-format.md",
+			"overview.md",
+			"quickstart.md",
+			"retold-catalog.json",
+			"retold-keyword-index.json",
+			"sidecar-reports.md",
+			"source-address-syntax.md",
+			"target-cell-syntax.md"
+		]
+	},
+	"Groups": []
 }
