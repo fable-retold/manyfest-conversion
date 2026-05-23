@@ -1,5 +1,7 @@
 # Manyfest Conversion
 
+> **[&#9654; Read the Manyfest-Conversion Documentation](https://stevenvelozo.github.io/manyfest-conversion/)** &mdash; interactive docs with the full API reference.
+
 A suite of tools for describing how JSON platform payloads map onto fillable PDF forms and Excel spreadsheets, and for actually performing those fills from the command line or from your own code.
 
 These tools are built to be usable from the command line, as Fable services inside your own applications, or both. This module presents these behaviors as a suite of externally usable Fable services and a command-line utility (`mfconv`) to drive them.
