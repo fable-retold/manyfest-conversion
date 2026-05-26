@@ -2,6 +2,6 @@
 	"Name": "manyfest-conversion",
 	"Version": "1.0.3",
 	"Description": "Build mapping manyfests from CSVs, then fill PDF forms and XLSX spreadsheets from platform JSON payloads.",
-	"GeneratedAt": "2026-05-22T05:48:26.343Z",
-	"GitCommit": "3ee7f65"
+	"GeneratedAt": "2026-05-26T18:25:38.567Z",
+	"GitCommit": "74bee3c"
 }
