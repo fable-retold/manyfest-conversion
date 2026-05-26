@@ -1,6 +1,6 @@
 # Manyfest Conversion
 
-> **[&#9654; Read the Manyfest-Conversion Documentation](https://stevenvelozo.github.io/manyfest-conversion/)** &mdash; interactive docs with the full API reference.
+> **[&#9654; Read the Manyfest-Conversion Documentation](https://fable-retold.github.io/manyfest-conversion/)** &mdash; interactive docs with the full API reference.
 
 A suite of tools for describing how JSON platform payloads map onto fillable PDF forms and Excel spreadsheets, and for actually performing those fills from the command line or from your own code.
 
@@ -8,7 +8,7 @@ These tools are built to be usable from the command line, as Fable services insi
 
 ## What is a Mapping Manyfest?
 
-A **mapping manyfest** is a standard [Manyfest](https://github.com/stevenvelozo/manyfest) schema whose descriptors describe, for one target form, which JSON source address feeds which PDF field or Excel cell. Descriptors carry the target metadata (field name, field type, cell range) as custom keys so a single file captures everything needed to fill that form from a platform payload.
+A **mapping manyfest** is a standard [Manyfest](https://github.com/fable-retold/manyfest) schema whose descriptors describe, for one target form, which JSON source address feeds which PDF field or Excel cell. Descriptors carry the target metadata (field name, field type, cell range) as custom keys so a single file captures everything needed to fill that form from a platform payload.
 
 ```json
 {
@@ -189,10 +189,10 @@ The script builds mapping manyfests into `555-translations/` and fills the forms
 
 ## Related Packages
 
-- [manyfest](https://github.com/stevenvelozo/manyfest) -- JSON object manifest for data description and parsing
-- [fable](https://github.com/stevenvelozo/fable) -- Service dependency injection framework
-- [pict-service-commandlineutility](https://github.com/stevenvelozo/pict-service-commandlineutility) -- CLI framework used by `mfconv`
-- [meadow-integration](https://github.com/stevenvelozo/meadow-integration) -- Sibling data-integration toolkit for Meadow entities
+- [manyfest](https://github.com/fable-retold/manyfest) -- JSON object manifest for data description and parsing
+- [fable](https://github.com/fable-retold/fable) -- Service dependency injection framework
+- [pict-service-commandlineutility](https://github.com/fable-retold/pict-service-commandlineutility) -- CLI framework used by `mfconv`
+- [meadow-integration](https://github.com/fable-retold/meadow-integration) -- Sibling data-integration toolkit for Meadow entities
 
 ## License
 

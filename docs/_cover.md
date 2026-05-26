@@ -9,5 +9,5 @@
 - Sidecar JSON reports capture every success, warning, and error
 - CLI (`mfconv`) and Fable services share the same core
 
-[GitHub](https://github.com/stevenvelozo/manyfest-conversion)
+[GitHub](https://github.com/fable-retold/manyfest-conversion)
 [Get Started](#manyfest-conversion)

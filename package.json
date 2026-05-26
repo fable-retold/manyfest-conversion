@@ -30,7 +30,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/stevenvelozo/manyfest-conversion.git"
+		"url": "git+https://github.com/fable-retold/manyfest-conversion.git"
 	},
 	"keywords": [
 		"manyfest",
