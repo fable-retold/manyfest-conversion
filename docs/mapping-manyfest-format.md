@@ -1,6 +1,6 @@
 # Mapping Manyfest Format
 
-A **mapping manyfest** is a standard [Manyfest](https://github.com/fable-retold/manyfest) schema with two additions:
+A **mapping manyfest** is a standard [Manyfest](https://fable-retold.github.io/manyfest/) schema with two additions:
 
 1. **Top-level metadata** identifying the target form and source routing
 2. **Custom descriptor keys** that tell the filler what to do with each resolved value

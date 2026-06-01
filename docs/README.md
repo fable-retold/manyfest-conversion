@@ -6,7 +6,7 @@ These tools are built to be usable from the command line, as Fable services insi
 
 ## What is a Mapping Manyfest?
 
-A **mapping manyfest** is a standard [Manyfest](https://github.com/fable-retold/manyfest) schema whose descriptors describe, for one target form, which JSON source address feeds which PDF field or Excel cell. Descriptors carry the target metadata (field name, field type, cell range) as custom keys so a single file captures everything needed to fill that form from a platform payload.
+A **mapping manyfest** is a standard [Manyfest](https://fable-retold.github.io/manyfest/) schema whose descriptors describe, for one target form, which JSON source address feeds which PDF field or Excel cell. Descriptors carry the target metadata (field name, field type, cell range) as custom keys so a single file captures everything needed to fill that form from a platform payload.
 
 ```json
 {
@@ -156,7 +156,7 @@ Every stage is a Fable service. The CLI (`mfconv`) is a thin `pict-service-comma
 
 ## Related Packages
 
-- [manyfest](https://github.com/fable-retold/manyfest) -- JSON object manifest for data description and parsing
-- [fable](https://github.com/fable-retold/fable) -- Service dependency injection framework
-- [pict-service-commandlineutility](https://github.com/fable-retold/pict-service-commandlineutility) -- CLI framework used by `mfconv`
-- [meadow-integration](https://github.com/fable-retold/meadow-integration) -- Sibling data-integration toolkit for Meadow entities
+- [manyfest](https://fable-retold.github.io/manyfest/) -- JSON object manifest for data description and parsing
+- [fable](https://fable-retold.github.io/fable/) -- Service dependency injection framework
+- [pict-service-commandlineutility](https://fable-retold.github.io/pict-service-commandlineutility/) -- CLI framework used by `mfconv`
+- [meadow-integration](https://fable-retold.github.io/meadow-integration/) -- Sibling data-integration toolkit for Meadow entities
