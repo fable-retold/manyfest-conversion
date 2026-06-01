@@ -148,7 +148,7 @@ The sidecar warnings for the six classification rows all look like this:
 }
 ```
 
-This is by design -- v1 leaves checkbox handling unfixed because a robust solution requires either:
+This is by design -- v1 leaves checkbox handling unfixed because a complete solution requires either:
 
 1. A convention for mapping "which checkbox is selected" to a specific checkbox field, or
 2. An explicit per-checkbox state map in the mapping manyfest

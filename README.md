@@ -1,6 +1,6 @@
 # Manyfest Conversion
 
-> **[&#9654; Read the Manyfest-Conversion Documentation](https://fable-retold.github.io/manyfest-conversion/)** &mdash; interactive docs with the full API reference.
+> **[Read the Manyfest-Conversion Documentation](https://fable-retold.github.io/manyfest-conversion/)** - interactive docs with the full API reference.
 
 A suite of tools for describing how JSON platform payloads map onto fillable PDF forms and Excel spreadsheets, and for actually performing those fills from the command line or from your own code.
 
