@@ -1,0 +1,28 @@
+flowchart LR
+    Mapping[mapping.json] --> Load[loadMappingManyfestFromFile]
+    Source[source.json] --> ReadSource[Read + parse JSON]
+
+    Load --> Manyfest[Live Manyfest instance]
+    ReadSource --> Data[Source data object]
+
+    Manyfest --> Filler{Filler selection}
+    Data --> Filler
+
+    Filler -->|TargetFileType=PDF| BuildXFDF[PDFFormFiller.buildXFDF]
+    Filler -->|TargetFileType=XLSX| LoadWB[exceljs readFile]
+
+    BuildXFDF --> XFDF[XFDF document]
+    XFDF --> PDFTK[pdftk fill_form]
+    PDFTK --> OutPDF[filled.pdf]
+
+    LoadWB --> IterDesc[Iterate descriptors]
+    IterDesc --> Resolve[resolveSourceValue]
+    Resolve -->|scalar| WriteCell[writeCellValue]
+    Resolve -->|array with [] + range target| BroadcastLoop[Pair elements with cells]
+    BroadcastLoop --> WriteCell
+    WriteCell --> SaveWB[exceljs writeFile]
+    SaveWB --> OutXLSX[filled.xlsx]
+
+    OutPDF --> Report[ConversionReport.finalize]
+    OutXLSX --> Report
+    Report --> Sidecar[filled.ext.report.json]

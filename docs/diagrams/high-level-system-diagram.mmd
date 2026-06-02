@@ -1,0 +1,62 @@
+flowchart TB
+    subgraph Inputs["Inputs"]
+        CSV["mappings.csv\n(one row per target field)"]
+        Sources["Source JSON payloads\n(ReportData.DocumentType + FormData)"]
+        Templates["PDF / XLSX templates\n(fillable forms on disk)"]
+    end
+
+    subgraph Interfaces["Interfaces"]
+        CLI["mfconv CLI\n(pict-service-commandlineutility)"]
+        PROG["Programmatic API\n(require manyfest-conversion)"]
+    end
+
+    subgraph Services["Core Services"]
+        MMB["MappingManyfestBuilder"]
+        PDF["PDFFormFiller"]
+        XLSX["XLSXFormFiller"]
+        CR["ConversionReport"]
+    end
+
+    subgraph External["External Dependencies"]
+        Manyfest["manyfest\n(address resolution)"]
+        PDFTK["pdftk / pdftk-java\n(PDF form fill via XFDF)"]
+        ExcelJS["exceljs\n(XLSX round-trip with formatting)"]
+    end
+
+    subgraph Outputs["Outputs"]
+        Translations["translations/\n*.mapping.json"]
+        FilledPDF["filled/*.pdf"]
+        FilledXLSX["filled/*.xlsx"]
+        Sidecars["filled/*.report.json\n(successes / warnings / errors)"]
+    end
+
+    CSV --> CLI
+    CSV --> PROG
+    Sources --> CLI
+    Sources --> PROG
+    Templates --> CLI
+    Templates --> PROG
+
+    CLI --> MMB
+    CLI --> PDF
+    CLI --> XLSX
+    CLI --> CR
+    PROG --> MMB
+    PROG --> PDF
+    PROG --> XLSX
+    PROG --> CR
+
+    MMB --> Manyfest
+    MMB --> Translations
+
+    PDF --> Manyfest
+    PDF --> PDFTK
+    PDF --> FilledPDF
+    PDF --> CR
+
+    XLSX --> Manyfest
+    XLSX --> ExcelJS
+    XLSX --> FilledXLSX
+    XLSX --> CR
+
+    CR --> Sidecars

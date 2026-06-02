@@ -1,0 +1,19 @@
+flowchart TB
+    Bin[bin/mfconv\nManyfest-Conversion-CLI-Run.js] --> Program[Manyfest-Conversion-CLI-Program.js]
+    Program --> Framework[pict-service-commandlineutility]
+    Framework --> BuildCmd[build-mappings command]
+    Framework --> FillPDFCmd[fill-pdf command]
+    Framework --> FillXLSXCmd[fill-xlsx command]
+    Framework --> BatchCmd[convert-batch command]
+
+    BuildCmd -->|onRunAsync| MMB[MappingManyfestBuilder service]
+    FillPDFCmd -->|onRunAsync| MMB
+    FillPDFCmd -->|onRunAsync| PDF[PDFFormFiller service]
+    FillPDFCmd -->|onRunAsync| CR[ConversionReport service]
+    FillXLSXCmd -->|async onRunAsync| MMB
+    FillXLSXCmd -->|async onRunAsync| XLSX[XLSXFormFiller service]
+    FillXLSXCmd -->|async onRunAsync| CR
+    BatchCmd -->|async onRunAsync| MMB
+    BatchCmd -->|async onRunAsync| PDF
+    BatchCmd -->|async onRunAsync| XLSX
+    BatchCmd -->|async onRunAsync| CR

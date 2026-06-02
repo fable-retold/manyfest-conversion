@@ -1,0 +1,15 @@
+flowchart LR
+    Template[PDF template] -->|extract-fields via pdftk| SkeletonCSV[skeleton CSV]
+    SkeletonCSV -->|hand-edit Form Input Address| CSV[mappings.csv]
+    CSV --> Builder[MappingManyfestBuilder]
+    Builder --> Translations[translations/*.mapping.json]
+
+    Source[source JSON payloads] --> Router{convert-batch}
+    Translations --> Router
+    Router -->|PDF target| PDFFiller[PDFFormFiller]
+    Router -->|XLSX target| XLSXFiller[XLSXFormFiller]
+    PDFFiller -->|XFDF via pdftk| FilledPDF[filled.pdf]
+    XLSXFiller -->|exceljs read/edit/write| FilledXLSX[filled.xlsx]
+    PDFFiller --> Report[ConversionReport]
+    XLSXFiller --> Report
+    Report --> Sidecar[filled.ext.report.json]

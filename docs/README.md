@@ -108,23 +108,8 @@ mfconv convert-batch \
 
 ## How It Works
 
-```mermaid
-flowchart LR
-    Template[PDF template] -->|extract-fields via pdftk| SkeletonCSV[skeleton CSV]
-    SkeletonCSV -->|hand-edit Form Input Address| CSV[mappings.csv]
-    CSV --> Builder[MappingManyfestBuilder]
-    Builder --> Translations[translations/*.mapping.json]
-
-    Source[source JSON payloads] --> Router{convert-batch}
-    Translations --> Router
-    Router -->|PDF target| PDFFiller[PDFFormFiller]
-    Router -->|XLSX target| XLSXFiller[XLSXFormFiller]
-    PDFFiller -->|XFDF via pdftk| FilledPDF[filled.pdf]
-    XLSXFiller -->|exceljs read/edit/write| FilledXLSX[filled.xlsx]
-    PDFFiller --> Report[ConversionReport]
-    XLSXFiller --> Report
-    Report --> Sidecar[filled.ext.report.json]
-```
+<!-- bespoke diagram: edit diagrams/how-it-works.mmd or .hints.json, then: npx pict-renderer-graph build modules/utility/manyfest-conversion/docs -->
+![How It Works](diagrams/how-it-works.svg)
 
 The builder consumes a flat CSV and emits one mapping manyfest per target form. The two filler services consume those mapping manyfests plus source JSON payloads and produce filled artifacts. Every fill writes a sidecar report alongside the artifact capturing the outcome at the per-field level.
 

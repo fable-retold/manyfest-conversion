@@ -1,0 +1,20 @@
+flowchart LR
+    PDFTemplate[PDF template\nwith fillable fields] -->|extract-fields\nvia pdftk dump_data_fields| SkeletonCSV[skeleton CSV\n Form Input Address empty]
+    SkeletonCSV -->|hand-edit| CSV[mappings.csv]
+    CSV --> Parser[fable CSVParser]
+    Parser --> Rows[Header-keyed row objects]
+    Rows --> Grouper[Group by PDF File column]
+    Grouper --> Builder[MappingManyfestBuilder.applyRowToConfigs]
+
+    Builder -->|has Form Input Address| Descriptor[Add descriptor]
+    Builder -->|empty Form Input Address| Unmapped[Append to UnmappedTargetFields]
+
+    Descriptor --> Normalize[Normalize address\nCAGTable[0]CAGB -> CAGTable[0].CAGB]
+    Normalize --> Config[Mapping manyfest config object]
+    Unmapped --> Config
+
+    Config --> Writer[writeManyfestsToDirectory]
+    Writer --> Files[translations/*.mapping.json]
+
+    Config --> Instantiate[instantiateManyfests]
+    Instantiate --> Live[Live Manyfest instance]

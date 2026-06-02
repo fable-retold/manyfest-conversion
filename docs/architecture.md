@@ -6,70 +6,8 @@ This document describes the architectural design of Manyfest Conversion: the cor
 
 Manyfest Conversion sits between a flat CSV of field mappings (authored by a domain expert) and a set of platform JSON payloads on one side, and a set of fillable form templates on the other. It produces filled artifacts and per-fill sidecar reports.
 
-```mermaid
-flowchart TB
-    subgraph Inputs["Inputs"]
-        CSV["mappings.csv\n(one row per target field)"]
-        Sources["Source JSON payloads\n(ReportData.DocumentType + FormData)"]
-        Templates["PDF / XLSX templates\n(fillable forms on disk)"]
-    end
-
-    subgraph Interfaces["Interfaces"]
-        CLI["mfconv CLI\n(pict-service-commandlineutility)"]
-        PROG["Programmatic API\n(require manyfest-conversion)"]
-    end
-
-    subgraph Services["Core Services"]
-        MMB["MappingManyfestBuilder"]
-        PDF["PDFFormFiller"]
-        XLSX["XLSXFormFiller"]
-        CR["ConversionReport"]
-    end
-
-    subgraph External["External Dependencies"]
-        Manyfest["manyfest\n(address resolution)"]
-        PDFTK["pdftk / pdftk-java\n(PDF form fill via XFDF)"]
-        ExcelJS["exceljs\n(XLSX round-trip with formatting)"]
-    end
-
-    subgraph Outputs["Outputs"]
-        Translations["translations/\n*.mapping.json"]
-        FilledPDF["filled/*.pdf"]
-        FilledXLSX["filled/*.xlsx"]
-        Sidecars["filled/*.report.json\n(successes / warnings / errors)"]
-    end
-
-    CSV --> CLI
-    CSV --> PROG
-    Sources --> CLI
-    Sources --> PROG
-    Templates --> CLI
-    Templates --> PROG
-
-    CLI --> MMB
-    CLI --> PDF
-    CLI --> XLSX
-    CLI --> CR
-    PROG --> MMB
-    PROG --> PDF
-    PROG --> XLSX
-    PROG --> CR
-
-    MMB --> Manyfest
-    MMB --> Translations
-
-    PDF --> Manyfest
-    PDF --> PDFTK
-    PDF --> FilledPDF
-    PDF --> CR
-
-    XLSX --> Manyfest
-    XLSX --> ExcelJS
-    XLSX --> FilledXLSX
-    XLSX --> CR
-
-    CR --> Sidecars
-```
+<!-- bespoke diagram: edit diagrams/high-level-system-diagram.mmd or .hints.json, then: npx pict-renderer-graph build modules/utility/manyfest-conversion/docs -->
+![High-level system diagram](diagrams/high-level-system-diagram.svg)
 
 The system divides into two conceptual phases:
 
@@ -80,28 +18,8 @@ The two phases use completely different services. The authoring phase never touc
 
 ## Authoring pipeline
 
-```mermaid
-flowchart LR
-    PDFTemplate[PDF template\nwith fillable fields] -->|extract-fields\nvia pdftk dump_data_fields| SkeletonCSV[skeleton CSV\n Form Input Address empty]
-    SkeletonCSV -->|hand-edit| CSV[mappings.csv]
-    CSV --> Parser[fable CSVParser]
-    Parser --> Rows[Header-keyed row objects]
-    Rows --> Grouper[Group by PDF File column]
-    Grouper --> Builder[MappingManyfestBuilder.applyRowToConfigs]
-
-    Builder -->|has Form Input Address| Descriptor[Add descriptor]
-    Builder -->|empty Form Input Address| Unmapped[Append to UnmappedTargetFields]
-
-    Descriptor --> Normalize[Normalize address\nCAGTable[0]CAGB -> CAGTable[0].CAGB]
-    Normalize --> Config[Mapping manyfest config object]
-    Unmapped --> Config
-
-    Config --> Writer[writeManyfestsToDirectory]
-    Writer --> Files[translations/*.mapping.json]
-
-    Config --> Instantiate[instantiateManyfests]
-    Instantiate --> Live[Live Manyfest instance]
-```
+<!-- bespoke diagram: edit diagrams/authoring-pipeline.mmd or .hints.json, then: npx pict-renderer-graph build modules/utility/manyfest-conversion/docs -->
+![Authoring pipeline](diagrams/authoring-pipeline.svg)
 
 Key steps:
 
@@ -117,36 +35,8 @@ Key steps:
 
 ## Fill pipeline
 
-```mermaid
-flowchart LR
-    Mapping[mapping.json] --> Load[loadMappingManyfestFromFile]
-    Source[source.json] --> ReadSource[Read + parse JSON]
-
-    Load --> Manyfest[Live Manyfest instance]
-    ReadSource --> Data[Source data object]
-
-    Manyfest --> Filler{Filler selection}
-    Data --> Filler
-
-    Filler -->|TargetFileType=PDF| BuildXFDF[PDFFormFiller.buildXFDF]
-    Filler -->|TargetFileType=XLSX| LoadWB[exceljs readFile]
-
-    BuildXFDF --> XFDF[XFDF document]
-    XFDF --> PDFTK[pdftk fill_form]
-    PDFTK --> OutPDF[filled.pdf]
-
-    LoadWB --> IterDesc[Iterate descriptors]
-    IterDesc --> Resolve[resolveSourceValue]
-    Resolve -->|scalar| WriteCell[writeCellValue]
-    Resolve -->|array with [] + range target| BroadcastLoop[Pair elements with cells]
-    BroadcastLoop --> WriteCell
-    WriteCell --> SaveWB[exceljs writeFile]
-    SaveWB --> OutXLSX[filled.xlsx]
-
-    OutPDF --> Report[ConversionReport.finalize]
-    OutXLSX --> Report
-    Report --> Sidecar[filled.ext.report.json]
-```
+<!-- bespoke diagram: edit diagrams/fill-pipeline.mmd or .hints.json, then: npx pict-renderer-graph build modules/utility/manyfest-conversion/docs -->
+![Fill pipeline](diagrams/fill-pipeline.svg)
 
 Key steps shared by both fillers:
 
@@ -215,27 +105,8 @@ This is exactly what the CLI commands do under the hood -- `addAndInstantiateSer
 
 ## CLI composition
 
-```mermaid
-flowchart TB
-    Bin[bin/mfconv\nManyfest-Conversion-CLI-Run.js] --> Program[Manyfest-Conversion-CLI-Program.js]
-    Program --> Framework[pict-service-commandlineutility]
-    Framework --> BuildCmd[build-mappings command]
-    Framework --> FillPDFCmd[fill-pdf command]
-    Framework --> FillXLSXCmd[fill-xlsx command]
-    Framework --> BatchCmd[convert-batch command]
-
-    BuildCmd -->|onRunAsync| MMB[MappingManyfestBuilder service]
-    FillPDFCmd -->|onRunAsync| MMB
-    FillPDFCmd -->|onRunAsync| PDF[PDFFormFiller service]
-    FillPDFCmd -->|onRunAsync| CR[ConversionReport service]
-    FillXLSXCmd -->|async onRunAsync| MMB
-    FillXLSXCmd -->|async onRunAsync| XLSX[XLSXFormFiller service]
-    FillXLSXCmd -->|async onRunAsync| CR
-    BatchCmd -->|async onRunAsync| MMB
-    BatchCmd -->|async onRunAsync| PDF
-    BatchCmd -->|async onRunAsync| XLSX
-    BatchCmd -->|async onRunAsync| CR
-```
+<!-- bespoke diagram: edit diagrams/cli-composition.mmd or .hints.json, then: npx pict-renderer-graph build modules/utility/manyfest-conversion/docs -->
+![CLI composition](diagrams/cli-composition.svg)
 
 Each command is a class extending `pict-service-commandlineutility`'s `ServiceCommandLineCommand` base. Each class declares its keyword, aliases, arguments, and options in its constructor via `this.addCommand()`, and implements `onRunAsync(fCallback)` to do the work.
 

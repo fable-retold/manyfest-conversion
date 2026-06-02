@@ -1,0 +1,4920 @@
+{
+	"type": "excalidraw",
+	"version": 2,
+	"source": "pict-section-excalidraw/notebook-generator",
+	"elements": [
+		{
+			"id": "cluster-Services",
+			"type": "rectangle",
+			"x": 74,
+			"y": 453,
+			"width": 1507,
+			"height": 386,
+			"angle": 0,
+			"strokeColor": "#8A7F72",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "dashed",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 981,
+			"version": 1,
+			"versionNonce": 981,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "cluster-label-Services",
+			"type": "text",
+			"x": 74,
+			"y": 458,
+			"width": 1507,
+			"height": 21,
+			"angle": 0,
+			"strokeColor": "#8A7F72",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 981,
+			"version": 1,
+			"versionNonce": 981,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "Core Services",
+			"fontSize": 15,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "top",
+			"containerId": null,
+			"originalText": "Core Services",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "cluster-Inputs",
+			"type": "rectangle",
+			"x": 2,
+			"y": -19,
+			"width": 1864,
+			"height": 195,
+			"angle": 0,
+			"strokeColor": "#8A7F72",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "dashed",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 316,
+			"version": 1,
+			"versionNonce": 316,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "cluster-label-Inputs",
+			"type": "text",
+			"x": 2,
+			"y": -14,
+			"width": 1864,
+			"height": 21,
+			"angle": 0,
+			"strokeColor": "#8A7F72",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 316,
+			"version": 1,
+			"versionNonce": 316,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "Inputs",
+			"fontSize": 15,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "top",
+			"containerId": null,
+			"originalText": "Inputs",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "cluster-Interfaces",
+			"type": "rectangle",
+			"x": 3,
+			"y": 217,
+			"width": 1807,
+			"height": 195,
+			"angle": 0,
+			"strokeColor": "#8A7F72",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "dashed",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 988,
+			"version": 1,
+			"versionNonce": 988,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "cluster-label-Interfaces",
+			"type": "text",
+			"x": 3,
+			"y": 222,
+			"width": 1807,
+			"height": 21,
+			"angle": 0,
+			"strokeColor": "#8A7F72",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 988,
+			"version": 1,
+			"versionNonce": 988,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "Interfaces",
+			"fontSize": 15,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "top",
+			"containerId": null,
+			"originalText": "Interfaces",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "cluster-External",
+			"type": "rectangle",
+			"x": 1573,
+			"y": 644,
+			"width": 1556,
+			"height": 195,
+			"angle": 0,
+			"strokeColor": "#8A7F72",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "dashed",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 436,
+			"version": 1,
+			"versionNonce": 436,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "cluster-label-External",
+			"type": "text",
+			"x": 1573,
+			"y": 649,
+			"width": 1556,
+			"height": 21,
+			"angle": 0,
+			"strokeColor": "#8A7F72",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 436,
+			"version": 1,
+			"versionNonce": 436,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "External Dependencies",
+			"fontSize": 15,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "top",
+			"containerId": null,
+			"originalText": "External Dependencies",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "cluster-Outputs",
+			"type": "rectangle",
+			"x": 77,
+			"y": 880,
+			"width": 1533,
+			"height": 195,
+			"angle": 0,
+			"strokeColor": "#8A7F72",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "dashed",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 456,
+			"version": 1,
+			"versionNonce": 456,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "cluster-label-Outputs",
+			"type": "text",
+			"x": 77,
+			"y": 885,
+			"width": 1533,
+			"height": 21,
+			"angle": 0,
+			"strokeColor": "#8A7F72",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 456,
+			"version": 1,
+			"versionNonce": 456,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "Outputs",
+			"fontSize": 15,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "top",
+			"containerId": null,
+			"originalText": "Outputs",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-CSV-000000dh",
+			"type": "rectangle",
+			"x": 49,
+			"y": 61,
+			"width": 473,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 485,
+			"version": 1,
+			"versionNonce": 485,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-CSV-0000004s",
+					"type": "text"
+				},
+				{
+					"id": "arrow-CSV-CLI-000000ds",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-CSV-PROG-000000jp",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-CSV-0000004s",
+			"type": "text",
+			"x": 57,
+			"y": 76.5,
+			"width": 457,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 172,
+			"version": 1,
+			"versionNonce": 172,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "mappings.csv\\n(one row per target field)",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-CSV-000000dh",
+			"originalText": "mappings.csv\\n(one row per target field)",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-Sources-000000gs",
+			"type": "rectangle",
+			"x": 567,
+			"y": 61,
+			"width": 670,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 604,
+			"version": 1,
+			"versionNonce": 604,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-Sources-0000007c",
+					"type": "text"
+				},
+				{
+					"id": "arrow-Sources-CLI-000000nt",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-Sources-PROG-00000058",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-Sources-0000007c",
+			"type": "text",
+			"x": 575,
+			"y": 76.5,
+			"width": 654,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 264,
+			"version": 1,
+			"versionNonce": 264,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "Source JSON payloads\\n(ReportData.DocumentType + FormData)",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-Sources-000000gs",
+			"originalText": "Source JSON payloads\\n(ReportData.DocumentType + FormData)",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-Templates-000000f8",
+			"type": "rectangle",
+			"x": 1282,
+			"y": 61,
+			"width": 538,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 548,
+			"version": 1,
+			"versionNonce": 548,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-Templates-000000n8",
+					"type": "text"
+				},
+				{
+					"id": "arrow-Templates-CLI-0000005s",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-Templates-PROG-000000fo",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-Templates-000000n8",
+			"type": "text",
+			"x": 1290,
+			"y": 76.5,
+			"width": 522,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 836,
+			"version": 1,
+			"versionNonce": 836,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "PDF / XLSX templates\\n(fillable forms on disk)",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-Templates-000000f8",
+			"originalText": "PDF / XLSX templates\\n(fillable forms on disk)",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-CLI-000000os",
+			"type": "rectangle",
+			"x": 916,
+			"y": 297,
+			"width": 527,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 892,
+			"version": 1,
+			"versionNonce": 892,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-CLI-000000it",
+					"type": "text"
+				},
+				{
+					"id": "arrow-CSV-CLI-000000ds",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-Sources-CLI-000000nt",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-Templates-CLI-0000005s",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-CLI-MMB-000000b8",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-CLI-PDF-0000009k",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-CLI-XLSX-000000b4",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-CLI-CR-000000qo",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-CLI-000000it",
+			"type": "text",
+			"x": 924,
+			"y": 312.5,
+			"width": 511,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 677,
+			"version": 1,
+			"versionNonce": 677,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "mfconv CLI\\n(pict-service-commandlineutility)",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-CLI-000000os",
+			"originalText": "mfconv CLI\\n(pict-service-commandlineutility)",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-PROG-0000006c",
+			"type": "rectangle",
+			"x": 202,
+			"y": 297,
+			"width": 549,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 228,
+			"version": 1,
+			"versionNonce": 228,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-PROG-000000r0",
+					"type": "text"
+				},
+				{
+					"id": "arrow-CSV-PROG-000000jp",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-Sources-PROG-00000058",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-Templates-PROG-000000fo",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PROG-MMB-000000og",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PROG-PDF-00000078",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PROG-XLSX-000000fk",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PROG-CR-0000005s",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-PROG-000000r0",
+			"type": "text",
+			"x": 210,
+			"y": 312.5,
+			"width": 533,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 972,
+			"version": 1,
+			"versionNonce": 972,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "Programmatic API\\n(require manyfest-conversion)",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-PROG-0000006c",
+			"originalText": "Programmatic API\\n(require manyfest-conversion)",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-MMB-000000e0",
+			"type": "rectangle",
+			"x": 1261,
+			"y": 533,
+			"width": 274,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 504,
+			"version": 1,
+			"versionNonce": 504,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-MMB-000000r4",
+					"type": "text"
+				},
+				{
+					"id": "arrow-CLI-MMB-000000b8",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PROG-MMB-000000og",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-MMB-Manyfest-000000ie",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-MMB-Translations-000000bs",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-MMB-000000r4",
+			"type": "text",
+			"x": 1269,
+			"y": 548.5,
+			"width": 258,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 976,
+			"version": 1,
+			"versionNonce": 976,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "MappingManyfestBuilder",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-MMB-000000e0",
+			"originalText": "MappingManyfestBuilder",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-PDF-000000fg",
+			"type": "rectangle",
+			"x": 1024,
+			"y": 533,
+			"width": 175,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 556,
+			"version": 1,
+			"versionNonce": 556,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-PDF-000000oo",
+					"type": "text"
+				},
+				{
+					"id": "arrow-CLI-PDF-0000009k",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PROG-PDF-00000078",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PDF-Manyfest-000000gk",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PDF-PDFTK-000000oq",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PDF-FilledPDF-000000ch",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PDF-CR-0000003c",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-PDF-000000oo",
+			"type": "text",
+			"x": 1032,
+			"y": 548.5,
+			"width": 159,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 888,
+			"version": 1,
+			"versionNonce": 888,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "PDFFormFiller",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-PDF-000000fg",
+			"originalText": "PDFFormFiller",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-XLSX-000000c4",
+			"type": "rectangle",
+			"x": 160,
+			"y": 533,
+			"width": 186,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 436,
+			"version": 1,
+			"versionNonce": 436,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-XLSX-000000k4",
+					"type": "text"
+				},
+				{
+					"id": "arrow-CLI-XLSX-000000b4",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PROG-XLSX-000000fk",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-XLSX-Manyfest-000000ec",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-XLSX-ExcelJS-0000009w",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-XLSX-FilledXLSX-000000a4",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-XLSX-CR-000000js",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-XLSX-000000k4",
+			"type": "text",
+			"x": 168,
+			"y": 548.5,
+			"width": 170,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 724,
+			"version": 1,
+			"versionNonce": 724,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "XLSXFormFiller",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-XLSX-000000c4",
+			"originalText": "XLSXFormFiller",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-CR-000000k0",
+			"type": "rectangle",
+			"x": 547,
+			"y": 724,
+			"width": 208,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 720,
+			"version": 1,
+			"versionNonce": 720,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-CR-000000lt",
+					"type": "text"
+				},
+				{
+					"id": "arrow-CLI-CR-000000qo",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PROG-CR-0000005s",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PDF-CR-0000003c",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-XLSX-CR-000000js",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-CR-Sidecars-000000fw",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-CR-000000lt",
+			"type": "text",
+			"x": 555,
+			"y": 739.5,
+			"width": 192,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 785,
+			"version": 1,
+			"versionNonce": 785,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "ConversionReport",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-CR-000000k0",
+			"originalText": "ConversionReport",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-Manyfest-000000es",
+			"type": "rectangle",
+			"x": 2721,
+			"y": 724,
+			"width": 362,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 532,
+			"version": 1,
+			"versionNonce": 532,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-Manyfest-000000d8",
+					"type": "text"
+				},
+				{
+					"id": "arrow-MMB-Manyfest-000000ie",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-PDF-Manyfest-000000gk",
+					"type": "arrow"
+				},
+				{
+					"id": "arrow-XLSX-Manyfest-000000ec",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-Manyfest-000000d8",
+			"type": "text",
+			"x": 2729,
+			"y": 739.5,
+			"width": 346,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 476,
+			"version": 1,
+			"versionNonce": 476,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "manyfest\\n(address resolution)",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-Manyfest-000000es",
+			"originalText": "manyfest\\n(address resolution)",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-PDFTK-0000005c",
+			"type": "rectangle",
+			"x": 2160,
+			"y": 724,
+			"width": 516,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 192,
+			"version": 1,
+			"versionNonce": 192,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-PDFTK-000000ep",
+					"type": "text"
+				},
+				{
+					"id": "arrow-PDF-PDFTK-000000oq",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-PDFTK-000000ep",
+			"type": "text",
+			"x": 2168,
+			"y": 739.5,
+			"width": 500,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 529,
+			"version": 1,
+			"versionNonce": 529,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "pdftk / pdftk-java\\n(PDF form fill via XFDF)",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-PDFTK-0000005c",
+			"originalText": "pdftk / pdftk-java\\n(PDF form fill via XFDF)",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-ExcelJS-000000ic",
+			"type": "rectangle",
+			"x": 1620,
+			"y": 724,
+			"width": 495,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 660,
+			"version": 1,
+			"versionNonce": 660,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-ExcelJS-000000os",
+					"type": "text"
+				},
+				{
+					"id": "arrow-XLSX-ExcelJS-0000009w",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-ExcelJS-000000os",
+			"type": "text",
+			"x": 1628,
+			"y": 739.5,
+			"width": 479,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 892,
+			"version": 1,
+			"versionNonce": 892,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "exceljs\\n(XLSX round-trip with formatting)",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-ExcelJS-000000ic",
+			"originalText": "exceljs\\n(XLSX round-trip with formatting)",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-Translations-000000q1",
+			"type": "rectangle",
+			"x": 1212,
+			"y": 960,
+			"width": 351,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 937,
+			"version": 1,
+			"versionNonce": 937,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-Translations-00000040",
+					"type": "text"
+				},
+				{
+					"id": "arrow-MMB-Translations-000000bs",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-Translations-00000040",
+			"type": "text",
+			"x": 1220,
+			"y": 975.5,
+			"width": 335,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 144,
+			"version": 1,
+			"versionNonce": 144,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "translations/\\n*.mapping.json",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-Translations-000000q1",
+			"originalText": "translations/\\n*.mapping.json",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-FilledPDF-000000qd",
+			"type": "rectangle",
+			"x": 1003,
+			"y": 960,
+			"width": 164,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 949,
+			"version": 1,
+			"versionNonce": 949,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-FilledPDF-000000m5",
+					"type": "text"
+				},
+				{
+					"id": "arrow-PDF-FilledPDF-000000ch",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-FilledPDF-000000m5",
+			"type": "text",
+			"x": 1011,
+			"y": 975.5,
+			"width": 148,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 797,
+			"version": 1,
+			"versionNonce": 797,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "filled/*.pdf",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-FilledPDF-000000qd",
+			"originalText": "filled/*.pdf",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-FilledXLSX-0000004y",
+			"type": "rectangle",
+			"x": 123,
+			"y": 960,
+			"width": 175,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 178,
+			"version": 1,
+			"versionNonce": 178,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-FilledXLSX-000000d4",
+					"type": "text"
+				},
+				{
+					"id": "arrow-XLSX-FilledXLSX-000000a4",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-FilledXLSX-000000d4",
+			"type": "text",
+			"x": 131,
+			"y": 975.5,
+			"width": 159,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 472,
+			"version": 1,
+			"versionNonce": 472,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "filled/*.xlsx",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-FilledXLSX-0000004y",
+			"originalText": "filled/*.xlsx",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "shape-Sidecars-000000is",
+			"type": "rectangle",
+			"x": 343,
+			"y": 960,
+			"width": 615,
+			"height": 56,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": {
+				"type": 3
+			},
+			"seed": 676,
+			"version": 1,
+			"versionNonce": 676,
+			"isDeleted": false,
+			"boundElements": [
+				{
+					"id": "label-Sidecars-000000iy",
+					"type": "text"
+				},
+				{
+					"id": "arrow-CR-Sidecars-000000fw",
+					"type": "arrow"
+				}
+			],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"index": null
+		},
+		{
+			"id": "label-Sidecars-000000iy",
+			"type": "text",
+			"x": 351,
+			"y": 975.5,
+			"width": 599,
+			"height": 25,
+			"angle": 0,
+			"strokeColor": "#1B1F23",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 1,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 682,
+			"version": 1,
+			"versionNonce": 682,
+			"isDeleted": false,
+			"boundElements": null,
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"text": "filled/*.report.json\\n(successes / warnings / errors)",
+			"fontSize": 20,
+			"fontFamily": 5,
+			"textAlign": "center",
+			"verticalAlign": "middle",
+			"baseline": 15,
+			"containerId": "shape-Sidecars-000000is",
+			"originalText": "filled/*.report.json\\n(successes / warnings / errors)",
+			"autoResize": true,
+			"lineHeight": 1.25,
+			"index": null
+		},
+		{
+			"id": "arrow-CSV-CLI-000000ds",
+			"type": "arrow",
+			"x": 522,
+			"y": 89,
+			"width": 394,
+			"height": 227.04000000000002,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 496,
+			"version": 1,
+			"versionNonce": 496,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					16,
+					0
+				],
+				[
+					36.955281207133,
+					2.0243621399176845
+				],
+				[
+					57.61262002743467,
+					7.7860082304526514
+				],
+				[
+					78.00925925925935,
+					16.817777777777792
+				],
+				[
+					98.18244170096034,
+					28.652510288065855
+				],
+				[
+					118.16941015089174,
+					42.82304526748973
+				],
+				[
+					138.00740740740753,
+					58.86222222222224
+				],
+				[
+					157.73367626886147,
+					76.30288065843624
+				],
+				[
+					177.3854595336078,
+					94.67786008230453
+				],
+				[
+					197,
+					113.52000000000001
+				],
+				[
+					216.61454046639233,
+					132.36213991769552
+				],
+				[
+					236.26632373113853,
+					150.7371193415638
+				],
+				[
+					255.9925925925926,
+					168.1777777777778
+				],
+				[
+					275.8305898491084,
+					184.21695473251032
+				],
+				[
+					295.8175582990398,
+					198.38748971193422
+				],
+				[
+					315.9907407407409,
+					210.22222222222229
+				],
+				[
+					336.3873799725652,
+					219.25399176954738
+				],
+				[
+					357.044718792867,
+					225.01563786008234
+				],
+				[
+					378,
+					227.04000000000002
+				],
+				[
+					394,
+					227.04000000000002
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-CSV-000000dh",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-CLI-000000os",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-CSV-PROG-000000jp",
+			"type": "arrow",
+			"x": 285.5,
+			"y": 117,
+			"width": 132.44,
+			"height": 180,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 709,
+			"version": 1,
+			"versionNonce": 709,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					1.1808779149519069,
+					24.56735253772291
+				],
+				[
+					4.541838134430691,
+					33.012894375857314
+				],
+				[
+					9.810370370370435,
+					41.351851851851876
+				],
+				[
+					16.713964334705054,
+					49.59945130315501
+				],
+				[
+					24.980109739369027,
+					57.770919067215374
+				],
+				[
+					34.336296296296325,
+					65.8814814814815
+				],
+				[
+					44.510013717421145,
+					73.94636488340197
+				],
+				[
+					55.22875171467763,
+					81.98079561042525
+				],
+				[
+					66.21999999999997,
+					90
+				],
+				[
+					77.21124828532243,
+					98.01920438957478
+				],
+				[
+					87.92998628257891,
+					106.05363511659806
+				],
+				[
+					98.10370370370373,
+					114.1185185185185
+				],
+				[
+					107.45989026063103,
+					122.22908093278465
+				],
+				[
+					115.72603566529494,
+					130.40054869684502
+				],
+				[
+					122.62962962962968,
+					138.6481481481482
+				],
+				[
+					127.89816186556925,
+					146.98710562414266
+				],
+				[
+					131.25912208504798,
+					155.4326474622771
+				],
+				[
+					132.44,
+					164
+				],
+				[
+					132.44,
+					180
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-CSV-000000dh",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-PROG-0000006c",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-Sources-CLI-000000nt",
+			"type": "arrow",
+			"x": 973.4666666666666,
+			"y": 117,
+			"width": 149.82000000000005,
+			"height": 180,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 857,
+			"version": 1,
+			"versionNonce": 857,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					1.3358436213990217,
+					24.56735253772291
+				],
+				[
+					5.137860082304428,
+					33.012894375857314
+				],
+				[
+					11.097777777777992,
+					41.351851851851876
+				],
+				[
+					18.90732510288069,
+					49.59945130315501
+				],
+				[
+					28.25823045267498,
+					57.770919067215374
+				],
+				[
+					38.842222222222404,
+					65.8814814814815
+				],
+				[
+					50.351028806584395,
+					73.94636488340197
+				],
+				[
+					62.47637860082307,
+					81.98079561042525
+				],
+				[
+					74.90999999999997,
+					90
+				],
+				[
+					87.3436213991771,
+					98.01920438957478
+				],
+				[
+					99.46897119341554,
+					106.05363511659806
+				],
+				[
+					110.97777777777776,
+					114.1185185185185
+				],
+				[
+					121.56176954732507,
+					122.22908093278465
+				],
+				[
+					130.91267489711947,
+					130.40054869684502
+				],
+				[
+					138.72222222222229,
+					138.6481481481482
+				],
+				[
+					144.68213991769574,
+					146.98710562414266
+				],
+				[
+					148.48415637860091,
+					155.4326474622771
+				],
+				[
+					149.82000000000005,
+					164
+				],
+				[
+					149.82000000000005,
+					180
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-Sources-000000gs",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-CLI-000000os",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-Sources-PROG-00000058",
+			"type": "arrow",
+			"x": 830.5333333333333,
+			"y": 117,
+			"width": 295.47333333333336,
+			"height": 180,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 188,
+			"version": 1,
+			"versionNonce": 188,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					-2.6345358939187236,
+					24.56735253772291
+				],
+				[
+					-10.132830361225501,
+					33.012894375857314
+				],
+				[
+					-21.886913580246755,
+					41.351851851851876
+				],
+				[
+					-37.28881572930959,
+					49.59945130315501
+				],
+				[
+					-55.730566986739746,
+					57.770919067215374
+				],
+				[
+					-76.6041975308641,
+					65.8814814814815
+				],
+				[
+					-99.30173754000907,
+					73.94636488340197
+				],
+				[
+					-123.2152171925012,
+					81.98079561042525
+				],
+				[
+					-147.73666666666668,
+					90
+				],
+				[
+					-172.25811614083227,
+					98.01920438957478
+				],
+				[
+					-196.17159579332417,
+					106.05363511659806
+				],
+				[
+					-218.86913580246915,
+					114.1185185185185
+				],
+				[
+					-239.7427663465935,
+					122.22908093278465
+				],
+				[
+					-258.18451760402377,
+					130.40054869684502
+				],
+				[
+					-273.5864197530864,
+					138.6481481481482
+				],
+				[
+					-285.34050297210797,
+					146.98710562414266
+				],
+				[
+					-292.83879743941475,
+					155.4326474622771
+				],
+				[
+					-295.47333333333336,
+					164
+				],
+				[
+					-295.47333333333336,
+					180
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-Sources-000000gs",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-PROG-0000006c",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-Templates-CLI-0000005s",
+			"type": "arrow",
+			"x": 1551,
+			"y": 117,
+			"width": 315.28666666666663,
+			"height": 180,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 208,
+			"version": 1,
+			"versionNonce": 208,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					-2.811197988111644,
+					24.56735253772291
+				],
+				[
+					-10.812299954275431,
+					33.012894375857314
+				],
+				[
+					-23.354567901234304,
+					41.351851851851876
+				],
+				[
+					-39.789263831733024,
+					49.59945130315501
+				],
+				[
+					-59.46764974851385,
+					57.770919067215374
+				],
+				[
+					-81.74098765432086,
+					65.8814814814815
+				],
+				[
+					-105.96053955189723,
+					73.94636488340197
+				],
+				[
+					-131.47756744398703,
+					81.98079561042525
+				],
+				[
+					-157.64333333333343,
+					90
+				],
+				[
+					-183.8090992226796,
+					98.01920438957478
+				],
+				[
+					-209.32612711476918,
+					106.05363511659806
+				],
+				[
+					-233.54567901234554,
+					114.1185185185185
+				],
+				[
+					-255.81901691815256,
+					122.22908093278465
+				],
+				[
+					-275.49740283493384,
+					130.40054869684502
+				],
+				[
+					-291.9320987654319,
+					138.6481481481482
+				],
+				[
+					-304.4743667123912,
+					146.98710562414266
+				],
+				[
+					-312.4754686785552,
+					155.4326474622771
+				],
+				[
+					-315.28666666666663,
+					164
+				],
+				[
+					-315.28666666666663,
+					180
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-Templates-000000f8",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-CLI-000000os",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-Templates-PROG-000000fo",
+			"type": "arrow",
+			"x": 1282,
+			"y": 89,
+			"width": 531,
+			"height": 227.04000000000002,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 564,
+			"version": 1,
+			"versionNonce": 564,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					-16,
+					0
+				],
+				[
+					-44.88587105624151,
+					2.0243621399176845
+				],
+				[
+					-73.3610425240056,
+					7.7860082304526514
+				],
+				[
+					-101.47685185185173,
+					16.817777777777792
+				],
+				[
+					-129.28463648834008,
+					28.652510288065855
+				],
+				[
+					-156.83573388203035,
+					42.82304526748973
+				],
+				[
+					-184.18148148148134,
+					58.86222222222224
+				],
+				[
+					-211.37321673525344,
+					76.30288065843624
+				],
+				[
+					-238.4622770919068,
+					94.67786008230453
+				],
+				[
+					-265.5000000000001,
+					113.52000000000001
+				],
+				[
+					-292.5377229080933,
+					132.36213991769552
+				],
+				[
+					-319.6267832647462,
+					150.7371193415638
+				],
+				[
+					-346.81851851851854,
+					168.1777777777778
+				],
+				[
+					-374.1642661179699,
+					184.21695473251032
+				],
+				[
+					-401.7153635116598,
+					198.38748971193422
+				],
+				[
+					-429.52314814814804,
+					210.22222222222229
+				],
+				[
+					-457.6389574759944,
+					219.25399176954738
+				],
+				[
+					-486.1141289437586,
+					225.01563786008234
+				],
+				[
+					-515,
+					227.04000000000002
+				],
+				[
+					-531,
+					227.04000000000002
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-Templates-000000f8",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-PROG-0000006c",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-CLI-MMB-000000b8",
+			"type": "arrow",
+			"x": 1235.7133333333334,
+			"y": 353,
+			"width": 162.28666666666663,
+			"height": 180,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 404,
+			"version": 1,
+			"versionNonce": 404,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					1.4470004572469861,
+					24.567352537722797
+				],
+				[
+					5.565386374028321,
+					33.012894375857286
+				],
+				[
+					12.021234567901274,
+					41.351851851851904
+				],
+				[
+					20.48062185642425,
+					49.59945130315498
+				],
+				[
+					30.60962505715588,
+					57.7709190672154
+				],
+				[
+					42.074320987654346,
+					65.8814814814815
+				],
+				[
+					54.54078646547782,
+					73.946364883402
+				],
+				[
+					67.67509830818472,
+					81.98079561042528
+				],
+				[
+					81.1433333333332,
+					90
+				],
+				[
+					94.61156835848215,
+					98.01920438957478
+				],
+				[
+					107.74588020118881,
+					106.05363511659812
+				],
+				[
+					120.21234567901229,
+					114.1185185185185
+				],
+				[
+					131.67704160951075,
+					122.22908093278465
+				],
+				[
+					141.80604481024216,
+					130.40054869684502
+				],
+				[
+					150.2654320987656,
+					138.6481481481482
+				],
+				[
+					156.7212802926383,
+					146.9871056241427
+				],
+				[
+					160.8396662094192,
+					155.4326474622771
+				],
+				[
+					162.28666666666663,
+					164
+				],
+				[
+					162.28666666666663,
+					180
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-CLI-000000os",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-MMB-000000e0",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-CLI-PDF-0000009k",
+			"type": "arrow",
+			"x": 1123.2866666666666,
+			"y": 353,
+			"width": 11.786666666666633,
+			"height": 180,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 344,
+			"version": 1,
+			"versionNonce": 344,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					-0.10509373571107972,
+					24.567352537722797
+				],
+				[
+					-0.4042066758115652,
+					33.012894375857286
+				],
+				[
+					-0.8730864197530082,
+					41.351851851851904
+				],
+				[
+					-1.4874805669867328,
+					49.59945130315498
+				],
+				[
+					-2.223136716963836,
+					57.7709190672154
+				],
+				[
+					-3.055802469135415,
+					65.8814814814815
+				],
+				[
+					-3.9612254229539303,
+					73.946364883402
+				],
+				[
+					-4.9151531778693425,
+					81.98079561042528
+				],
+				[
+					-5.893333333333203,
+					90
+				],
+				[
+					-6.871513488797518,
+					98.01920438957478
+				],
+				[
+					-7.82544124371293,
+					106.05363511659812
+				],
+				[
+					-8.730864197530764,
+					114.1185185185185
+				],
+				[
+					-9.563529949702797,
+					122.22908093278465
+				],
+				[
+					-10.2991860996799,
+					130.40054869684502
+				],
+				[
+					-10.913580246913398,
+					138.6481481481482
+				],
+				[
+					-11.382459990855068,
+					146.9871056241427
+				],
+				[
+					-11.681572930955554,
+					155.4326474622771
+				],
+				[
+					-11.786666666666633,
+					164
+				],
+				[
+					-11.786666666666633,
+					180
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-CLI-000000os",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-PDF-000000fg",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-CLI-XLSX-000000b4",
+			"type": "arrow",
+			"x": 916,
+			"y": 325,
+			"width": 570,
+			"height": 225.24800000000005,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 400,
+			"version": 1,
+			"versionNonce": 400,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					-16,
+					0
+				],
+				[
+					-47.14348422496573,
+					2.0083840877913985
+				],
+				[
+					-77.84417009602203,
+					7.724554183813382
+				],
+				[
+					-108.15740740740716,
+					16.685037037037148
+				],
+				[
+					-138.13854595336068,
+					28.42635939643344
+				],
+				[
+					-167.84293552812062,
+					42.48504801097397
+				],
+				[
+					-197.32592592592584,
+					58.39762962962965
+				],
+				[
+					-226.64286694101497,
+					75.70063100137179
+				],
+				[
+					-255.84910836762685,
+					93.93057887517153
+				],
+				[
+					-285,
+					112.62400000000002
+				],
+				[
+					-314.15089163237315,
+					131.31742112482863
+				],
+				[
+					-343.3571330589849,
+					149.54736899862826
+				],
+				[
+					-372.67407407407404,
+					166.85037037037034
+				],
+				[
+					-402.15706447187927,
+					182.76295198902613
+				],
+				[
+					-431.8614540466392,
+					196.8216406035666
+				],
+				[
+					-461.8425925925926,
+					208.56296296296307
+				],
+				[
+					-492.155829903978,
+					217.5234458161866
+				],
+				[
+					-522.8565157750343,
+					223.2396159122086
+				],
+				[
+					-554,
+					225.24800000000005
+				],
+				[
+					-570,
+					225.24800000000005
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-CLI-000000os",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-XLSX-000000c4",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-CLI-CR-000000qo",
+			"type": "arrow",
+			"x": 916,
+			"y": 333.96,
+			"width": 161,
+			"height": 412.06666666666666,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 960,
+			"version": 1,
+			"versionNonce": 960,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					-16,
+					0
+				],
+				[
+					-23.467489711934263,
+					3.674119798811148
+				],
+				[
+					-30.828806584362155,
+					14.131229995427475
+				],
+				[
+					-38.097222222221944,
+					30.523456790123475
+				],
+				[
+					-45.28600823045258,
+					52.0029263831733
+				],
+				[
+					-52.40843621399165,
+					77.72176497485145
+				],
+				[
+					-59.477777777777646,
+					106.83209876543214
+				],
+				[
+					-66.50730452674895,
+					138.48605395518985
+				],
+				[
+					-73.5102880658435,
+					171.83575674439874
+				],
+				[
+					-80.5,
+					206.03333333333336
+				],
+				[
+					-87.48971193415628,
+					240.23090992226793
+				],
+				[
+					-94.49269547325105,
+					273.58061271147693
+				],
+				[
+					-101.52222222222224,
+					305.23456790123447
+				],
+				[
+					-108.59156378600824,
+					334.3449016918153
+				],
+				[
+					-115.71399176954719,
+					360.0637402834935
+				],
+				[
+					-122.90277777777771,
+					381.54320987654324
+				],
+				[
+					-130.17119341563784,
+					397.9354366712392
+				],
+				[
+					-137.53251028806585,
+					408.3925468678555
+				],
+				[
+					-145,
+					412.06666666666666
+				],
+				[
+					-161,
+					412.06666666666666
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-CLI-000000os",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-CR-000000k0",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-PROG-MMB-000000og",
+			"type": "arrow",
+			"x": 751,
+			"y": 325,
+			"width": 510,
+			"height": 236,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 880,
+			"version": 1,
+			"versionNonce": 880,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					16,
+					0
+				],
+				[
+					43.67023319615896,
+					2.10425240054866
+				],
+				[
+					70.94705075445813,
+					8.0932784636488
+				],
+				[
+					97.87962962962979,
+					17.481481481481524
+				],
+				[
+					124.51714677640621,
+					29.783264746227644
+				],
+				[
+					150.90877914952,
+					44.513031550068604
+				],
+				[
+					177.1037037037038,
+					61.18518518518522
+				],
+				[
+					203.15109739369018,
+					79.31412894375859
+				],
+				[
+					229.10013717421134,
+					98.41426611796987
+				],
+				[
+					255,
+					118
+				],
+				[
+					280.8998628257889,
+					137.58573388203018
+				],
+				[
+					306.84890260631005,
+					156.68587105624147
+				],
+				[
+					332.8962962962962,
+					174.81481481481478
+				],
+				[
+					359.0912208504801,
+					191.4869684499314
+				],
+				[
+					385.482853223594,
+					206.2167352537723
+				],
+				[
+					412.12037037037044,
+					218.5185185185186
+				],
+				[
+					439.05294924554187,
+					227.90672153635114
+				],
+				[
+					466.3297668038408,
+					233.89574759945128
+				],
+				[
+					494,
+					236
+				],
+				[
+					510,
+					236
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-PROG-0000006c",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-MMB-000000e0",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-PROG-PDF-00000078",
+			"type": "arrow",
+			"x": 751,
+			"y": 333.96,
+			"width": 273,
+			"height": 221.06666666666666,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 260,
+			"version": 1,
+			"versionNonce": 260,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					16,
+					0
+				],
+				[
+					29.9508916323731,
+					1.9711019661636442
+				],
+				[
+					43.70342935528106,
+					7.5811614083218615
+				],
+				[
+					57.282407407407504,
+					16.375308641975323
+				],
+				[
+					70.71262002743492,
+					27.898673982624643
+				],
+				[
+					84.01886145404671,
+					41.696387745770494
+				],
+				[
+					97.22592592592594,
+					57.3135802469136
+				],
+				[
+					110.35860768175598,
+					74.2953818015547
+				],
+				[
+					123.44170096021935,
+					92.18692272519439
+				],
+				[
+					136.5,
+					110.53333333333336
+				],
+				[
+					149.55829903978065,
+					128.87974394147233
+				],
+				[
+					162.64139231824413,
+					146.77128486511202
+				],
+				[
+					175.77407407407406,
+					163.75308641975306
+				],
+				[
+					188.9811385459534,
+					179.37027892089628
+				],
+				[
+					202.28737997256508,
+					193.16799268404208
+				],
+				[
+					215.71759259259272,
+					204.6913580246915
+				],
+				[
+					229.29657064471894,
+					213.48550525834474
+				],
+				[
+					243.0491083676269,
+					219.09556470050296
+				],
+				[
+					257,
+					221.06666666666666
+				],
+				[
+					273,
+					221.06666666666666
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-PROG-0000006c",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-PDF-000000fg",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-PROG-XLSX-000000fk",
+			"type": "arrow",
+			"x": 417.94,
+			"y": 353,
+			"width": 164.94,
+			"height": 180,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 560,
+			"version": 1,
+			"versionNonce": 560,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					-1.4706584362140802,
+					24.567352537722797
+				],
+				[
+					-5.656378600823075,
+					33.012894375857286
+				],
+				[
+					-12.217777777777712,
+					41.351851851851904
+				],
+				[
+					-20.815473251028834,
+					49.59945130315498
+				],
+				[
+					-31.110082304526657,
+					57.7709190672154
+				],
+				[
+					-42.762222222222135,
+					65.8814814814815
+				],
+				[
+					-55.43251028806583,
+					73.946364883402
+				],
+				[
+					-68.78156378600818,
+					81.98079561042528
+				],
+				[
+					-82.46999999999997,
+					90
+				],
+				[
+					-96.15843621399176,
+					98.01920438957478
+				],
+				[
+					-109.50748971193417,
+					106.05363511659812
+				],
+				[
+					-122.17777777777775,
+					114.1185185185185
+				],
+				[
+					-133.82991769547323,
+					122.22908093278465
+				],
+				[
+					-144.12452674897116,
+					130.40054869684502
+				],
+				[
+					-152.72222222222223,
+					138.6481481481482
+				],
+				[
+					-159.28362139917692,
+					146.9871056241427
+				],
+				[
+					-163.469341563786,
+					155.4326474622771
+				],
+				[
+					-164.94,
+					164
+				],
+				[
+					-164.94,
+					180
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-PROG-0000006c",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-XLSX-000000c4",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-PROG-CR-0000005s",
+			"type": "arrow",
+			"x": 535.06,
+			"y": 353,
+			"width": 115.94000000000005,
+			"height": 371,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 208,
+			"version": 1,
+			"versionNonce": 208,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					1.033758573388127,
+					35.62386831275717
+				],
+				[
+					3.9759945130314236,
+					54.96872427983527
+				],
+				[
+					8.58814814814832,
+					74.06944444444446
+				],
+				[
+					14.631659807956112,
+					92.96090534979425
+				],
+				[
+					21.867969821673455,
+					111.67798353909467
+				],
+				[
+					30.058518518518554,
+					130.25555555555565
+				],
+				[
+					38.96474622770927,
+					148.72849794238687
+				],
+				[
+					48.34809327846381,
+					167.13168724279842
+				],
+				[
+					57.97000000000003,
+					185.5
+				],
+				[
+					67.59190672153647,
+					203.8683127572017
+				],
+				[
+					76.9752537722909,
+					222.27150205761313
+				],
+				[
+					85.8814814814815,
+					240.74444444444453
+				],
+				[
+					94.07203017832649,
+					259.3220164609054
+				],
+				[
+					101.30834019204394,
+					278.0390946502058
+				],
+				[
+					107.35185185185196,
+					296.93055555555566
+				],
+				[
+					111.96400548696852,
+					316.0312757201647
+				],
+				[
+					114.90624142661181,
+					335.3761316872427
+				],
+				[
+					115.94000000000005,
+					355
+				],
+				[
+					115.94000000000005,
+					371
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-PROG-0000006c",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-CR-000000k0",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-MMB-Manyfest-000000ie",
+			"type": "arrow",
+			"x": 1535,
+			"y": 561,
+			"width": 1186,
+			"height": 182.03999999999996,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 662,
+			"version": 1,
+			"versionNonce": 662,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					16,
+					0
+				],
+				[
+					82.8021947873799,
+					1.6231275720164149
+				],
+				[
+					148.65459533607668,
+					6.242798353909279
+				],
+				[
+					213.6759259259261,
+					13.484444444444534
+				],
+				[
+					277.98491083676277,
+					22.973497942386757
+				],
+				[
+					341.7002743484229,
+					34.335390946502116
+				],
+				[
+					404.94074074074115,
+					47.19555555555564
+				],
+				[
+					467.82503429355324,
+					61.179423868312824
+				],
+				[
+					530.4718792866943,
+					75.91242798353903
+				],
+				[
+					593,
+					91.01999999999998
+				],
+				[
+					655.5281207133062,
+					106.12757201646082
+				],
+				[
+					718.1749657064474,
+					120.86057613168714
+				],
+				[
+					781.0592592592593,
+					134.84444444444443
+				],
+				[
+					844.2997256515773,
+					147.70460905349796
+				],
+				[
+					908.0150891632375,
+					159.0665020576132
+				],
+				[
+					972.3240740740744,
+					168.55555555555566
+				],
+				[
+					1037.3454046639235,
+					175.79720164609057
+				],
+				[
+					1103.19780521262,
+					180.41687242798355
+				],
+				[
+					1170,
+					182.03999999999996
+				],
+				[
+					1186,
+					182.03999999999996
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-MMB-000000e0",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-Manyfest-000000es",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-MMB-Translations-000000bs",
+			"type": "arrow",
+			"x": 1398,
+			"y": 589,
+			"width": 10.5,
+			"height": 371,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 424,
+			"version": 1,
+			"versionNonce": 424,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					-0.09362139917720924,
+					35.623868312757054
+				],
+				[
+					-0.3600823045269408,
+					54.968724279835214
+				],
+				[
+					-0.7777777777776009,
+					74.06944444444446
+				],
+				[
+					-1.3251028806585055,
+					92.96090534979419
+				],
+				[
+					-1.9804526748971512,
+					111.67798353909461
+				],
+				[
+					-2.7222222222221717,
+					130.2555555555556
+				],
+				[
+					-3.5288065843619734,
+					148.72849794238687
+				],
+				[
+					-4.37860082304519,
+					167.13168724279842
+				],
+				[
+					-5.25,
+					185.5
+				],
+				[
+					-6.121399176954583,
+					203.8683127572017
+				],
+				[
+					-6.971193415637799,
+					222.27150205761313
+				],
+				[
+					-7.777777777777828,
+					240.7444444444444
+				],
+				[
+					-8.519547325102849,
+					259.3220164609054
+				],
+				[
+					-9.174897119341495,
+					278.0390946502057
+				],
+				[
+					-9.722222222222172,
+					296.93055555555566
+				],
+				[
+					-10.13991769547306,
+					316.03127572016456
+				],
+				[
+					-10.406378600823018,
+					335.37613168724283
+				],
+				[
+					-10.5,
+					355
+				],
+				[
+					-10.5,
+					371
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-MMB-000000e0",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-Translations-000000q1",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-PDF-Manyfest-000000gk",
+			"type": "arrow",
+			"x": 1199,
+			"y": 555.0266666666666,
+			"width": 1522,
+			"height": 196.97333333333336,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 596,
+			"version": 1,
+			"versionNonce": 596,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					16,
+					0
+				],
+				[
+					102.25240054869664,
+					1.7562780064014305
+				],
+				[
+					187.27846364883385,
+					6.754915409236219
+				],
+				[
+					271.2314814814815,
+					14.590617283950678
+				],
+				[
+					354.26474622770934,
+					24.858088705989985
+				],
+				[
+					436.5315500685874,
+					37.15203475080034
+				],
+				[
+					518.1851851851852,
+					51.06716049382726
+				],
+				[
+					599.3789437585735,
+					66.19817101051672
+				],
+				[
+					680.2661179698218,
+					82.13977137631457
+				],
+				[
+					761,
+					98.48666666666668
+				],
+				[
+					841.7338820301784,
+					114.83356195701879
+				],
+				[
+					922.6210562414267,
+					130.77516232281664
+				],
+				[
+					1003.8148148148148,
+					145.9061728395062
+				],
+				[
+					1085.4684499314126,
+					159.82129858253325
+				],
+				[
+					1167.735253772291,
+					172.11524462734337
+				],
+				[
+					1250.7685185185187,
+					182.3827160493828
+				],
+				[
+					1334.721536351166,
+					190.21841792409703
+				],
+				[
+					1419.7475994513034,
+					195.2170553269318
+				],
+				[
+					1506,
+					196.97333333333336
+				],
+				[
+					1522,
+					196.97333333333336
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-PDF-000000fg",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-Manyfest-000000es",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-PDF-PDFTK-000000oq",
+			"type": "arrow",
+			"x": 1199,
+			"y": 566.9733333333334,
+			"width": 961,
+			"height": 185.02666666666664,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 890,
+			"version": 1,
+			"versionNonce": 890,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					16,
+					0
+				],
+				[
+					69.77750342935519,
+					1.6497576588934635
+				],
+				[
+					122.79039780521248,
+					6.345221764974781
+				],
+				[
+					175.13425925925935,
+					13.70567901234574
+				],
+				[
+					226.9046639231824,
+					23.350416095107562
+				],
+				[
+					278.19718792866956,
+					34.898719707361806
+				],
+				[
+					329.10740740740766,
+					47.96987654320992
+				],
+				[
+					379.73089849108374,
+					62.18317329675358
+				],
+				[
+					430.1632373113855,
+					77.15789666209423
+				],
+				[
+					480.5,
+					92.51333333333332
+				],
+				[
+					530.8367626886147,
+					107.86877000457241
+				],
+				[
+					581.2691015089165,
+					122.84349336991318
+				],
+				[
+					631.8925925925923,
+					137.05679012345684
+				],
+				[
+					682.8028120713307,
+					150.12794695930506
+				],
+				[
+					734.0953360768176,
+					161.6762505715592
+				],
+				[
+					785.8657407407409,
+					171.32098765432102
+				],
+				[
+					838.2096021947873,
+					178.68144490169186
+				],
+				[
+					891.2224965706446,
+					183.37690900777307
+				],
+				[
+					945,
+					185.02666666666664
+				],
+				[
+					961,
+					185.02666666666664
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-PDF-000000fg",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-PDFTK-0000005c",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-PDF-FilledPDF-000000ch",
+			"type": "arrow",
+			"x": 1111.5,
+			"y": 589,
+			"width": 26.5,
+			"height": 371,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 449,
+			"version": 1,
+			"versionNonce": 449,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					-0.2362825788752616,
+					35.623868312757054
+				],
+				[
+					-0.9087791495198871,
+					54.968724279835214
+				],
+				[
+					-1.9629629629628198,
+					74.06944444444446
+				],
+				[
+					-3.34430727023323,
+					92.96090534979419
+				],
+				[
+					-4.998285322359379,
+					111.67798353909461
+				],
+				[
+					-6.87037037037021,
+					130.2555555555556
+				],
+				[
+					-8.906035665294667,
+					148.72849794238687
+				],
+				[
+					-11.050754458161691,
+					167.13168724279842
+				],
+				[
+					-13.25,
+					185.5
+				],
+				[
+					-15.449245541838081,
+					203.8683127572017
+				],
+				[
+					-17.593964334705106,
+					222.27150205761313
+				],
+				[
+					-19.629629629629562,
+					240.7444444444444
+				],
+				[
+					-21.50171467764062,
+					259.3220164609054
+				],
+				[
+					-23.15569272976677,
+					278.0390946502057
+				],
+				[
+					-24.537037037036953,
+					296.93055555555566
+				],
+				[
+					-25.591220850480113,
+					316.03127572016456
+				],
+				[
+					-26.26371742112474,
+					335.37613168724283
+				],
+				[
+					-26.5,
+					355
+				],
+				[
+					-26.5,
+					371
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-PDF-000000fg",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-FilledPDF-000000qd",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-PDF-CR-0000003c",
+			"type": "arrow",
+			"x": 1024,
+			"y": 566.9733333333334,
+			"width": 269,
+			"height": 191,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 120,
+			"version": 1,
+			"versionNonce": 120,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					-16,
+					0
+				],
+				[
+					-29.7193415637862,
+					1.703017832647447
+				],
+				[
+					-43.24362139917707,
+					6.55006858710567
+				],
+				[
+					-56.59722222222206,
+					14.148148148148266
+				],
+				[
+					-69.80452674897117,
+					24.104252400548717
+				],
+				[
+					-82.88991769547317,
+					36.02537722908096
+				],
+				[
+					-95.87777777777774,
+					49.51851851851859
+				],
+				[
+					-108.79248971193408,
+					64.1906721536352
+				],
+				[
+					-121.65843621399176,
+					79.6488340192044
+				],
+				[
+					-134.5,
+					95.5
+				],
+				[
+					-147.34156378600824,
+					111.3511659807956
+				],
+				[
+					-160.20751028806592,
+					126.80932784636491
+				],
+				[
+					-173.12222222222215,
+					141.48148148148152
+				],
+				[
+					-186.1100823045267,
+					154.97462277091904
+				],
+				[
+					-199.19547325102872,
+					166.89574759945128
+				],
+				[
+					-212.40277777777771,
+					176.85185185185196
+				],
+				[
+					-225.75637860082293,
+					184.44993141289433
+				],
+				[
+					-239.28065843621403,
+					189.29698216735255
+				],
+				[
+					-253,
+					191
+				],
+				[
+					-269,
+					191
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-PDF-000000fg",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-CR-000000k0",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-XLSX-Manyfest-000000ec",
+			"type": "arrow",
+			"x": 346,
+			"y": 571.752,
+			"width": 2375,
+			"height": 189.20800000000008,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 516,
+			"version": 1,
+			"versionNonce": 516,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					16,
+					0
+				],
+				[
+					151.63045267489701,
+					1.6870397805211041
+				],
+				[
+					285.3325102880657,
+					6.488614540466301
+				],
+				[
+					417.3472222222223,
+					14.015407407407565
+				],
+				[
+					547.9156378600824,
+					23.878101508916302
+				],
+				[
+					677.2788065843623,
+					35.68737997256528
+				],
+				[
+					805.6777777777779,
+					49.05392592592602
+				],
+				[
+					933.3536008230456,
+					63.58842249657073
+				],
+				[
+					1060.5473251028807,
+					78.90155281207149
+				],
+				[
+					1187.5,
+					94.60400000000004
+				],
+				[
+					1314.4526748971193,
+					110.30644718792882
+				],
+				[
+					1441.646399176955,
+					125.61957750342947
+				],
+				[
+					1569.322222222222,
+					140.15407407407406
+				],
+				[
+					1697.721193415638,
+					153.52062002743492
+				],
+				[
+					1827.084362139918,
+					165.32989849108378
+				],
+				[
+					1957.6527777777783,
+					175.19259259259275
+				],
+				[
+					2089.667489711934,
+					182.71938545953367
+				],
+				[
+					2223.3695473251028,
+					187.52096021947887
+				],
+				[
+					2359,
+					189.20800000000008
+				],
+				[
+					2375,
+					189.20800000000008
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-XLSX-000000c4",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-Manyfest-000000es",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-XLSX-ExcelJS-0000009w",
+			"type": "arrow",
+			"x": 346,
+			"y": 564.584,
+			"width": 1274,
+			"height": 187.41600000000005,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 356,
+			"version": 1,
+			"versionNonce": 356,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					16,
+					0
+				],
+				[
+					87.89629629629627,
+					1.6710617283949887
+				],
+				[
+					158.77037037037036,
+					6.427160493827046
+				],
+				[
+					228.7500000000001,
+					13.88266666666675
+				],
+				[
+					297.96296296296293,
+					23.651950617284
+				],
+				[
+					366.5370370370372,
+					35.34938271604949
+				],
+				[
+					434.60000000000014,
+					48.58933333333334
+				],
+				[
+					502.27962962962965,
+					62.98617283950625
+				],
+				[
+					569.7037037037037,
+					78.15427160493834
+				],
+				[
+					637,
+					93.70799999999997
+				],
+				[
+					704.2962962962965,
+					109.26172839506171
+				],
+				[
+					771.7203703703703,
+					124.4298271604938
+				],
+				[
+					839.4000000000001,
+					138.8266666666667
+				],
+				[
+					907.462962962963,
+					152.06661728395068
+				],
+				[
+					976.0370370370372,
+					163.76404938271605
+				],
+				[
+					1045.2500000000002,
+					173.53333333333342
+				],
+				[
+					1115.2296296296297,
+					180.9888395061729
+				],
+				[
+					1186.1037037037038,
+					185.74493827160495
+				],
+				[
+					1258,
+					187.41600000000005
+				],
+				[
+					1274,
+					187.41600000000005
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-XLSX-000000c4",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-ExcelJS-000000ic",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-XLSX-FilledXLSX-000000a4",
+			"type": "arrow",
+			"x": 253,
+			"y": 589,
+			"width": 42.5,
+			"height": 371,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 364,
+			"version": 1,
+			"versionNonce": 364,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					-0.37894375857339924,
+					35.623868312757054
+				],
+				[
+					-1.4574759945130324,
+					54.968724279835214
+				],
+				[
+					-3.148148148148124,
+					74.06944444444446
+				],
+				[
+					-5.363511659807926,
+					92.96090534979419
+				],
+				[
+					-8.016117969821664,
+					111.67798353909461
+				],
+				[
+					-11.018518518518476,
+					130.2555555555556
+				],
+				[
+					-14.283264746227701,
+					148.72849794238687
+				],
+				[
+					-17.72290809327845,
+					167.13168724279842
+				],
+				[
+					-21.25,
+					185.5
+				],
+				[
+					-24.77709190672155,
+					203.8683127572017
+				],
+				[
+					-28.2167352537723,
+					222.27150205761313
+				],
+				[
+					-31.481481481481467,
+					240.7444444444444
+				],
+				[
+					-34.48388203017831,
+					259.3220164609054
+				],
+				[
+					-37.136488340192045,
+					278.0390946502057
+				],
+				[
+					-39.35185185185185,
+					296.93055555555566
+				],
+				[
+					-41.04252400548694,
+					316.03127572016456
+				],
+				[
+					-42.12105624142663,
+					335.37613168724283
+				],
+				[
+					-42.5,
+					355
+				],
+				[
+					-42.5,
+					371
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-XLSX-000000c4",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-FilledXLSX-0000004y",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-XLSX-CR-000000js",
+			"type": "arrow",
+			"x": 346,
+			"y": 557.4159999999999,
+			"width": 201,
+			"height": 194.58400000000006,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 712,
+			"version": 1,
+			"versionNonce": 712,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					16,
+					0
+				],
+				[
+					25.78299039780518,
+					1.7349739368997916
+				],
+				[
+					35.42688614540458,
+					6.672976680383954
+				],
+				[
+					44.949074074074076,
+					14.413629629629668
+				],
+				[
+					54.36694101508914,
+					24.556554183813546
+				],
+				[
+					63.6978737997257,
+					36.701371742112656
+				],
+				[
+					72.95925925925928,
+					50.44770370370372
+				],
+				[
+					82.16848422496582,
+					65.39517146776416
+				],
+				[
+					91.34293552812068,
+					81.14339643347057
+				],
+				[
+					100.5,
+					97.29200000000003
+				],
+				[
+					109.65706447187927,
+					113.44060356652949
+				],
+				[
+					118.83151577503429,
+					129.18882853223613
+				],
+				[
+					128.04074074074072,
+					144.13629629629634
+				],
+				[
+					137.30212620027436,
+					157.88262825788763
+				],
+				[
+					146.6330589849108,
+					170.02744581618663
+				],
+				[
+					156.05092592592598,
+					180.1703703703704
+				],
+				[
+					165.57311385459536,
+					187.911023319616
+				],
+				[
+					175.21700960219482,
+					192.84902606310015
+				],
+				[
+					185,
+					194.58400000000006
+				],
+				[
+					201,
+					194.58400000000006
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-XLSX-000000c4",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-CR-000000k0",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		},
+		{
+			"id": "arrow-CR-Sidecars-000000fw",
+			"type": "arrow",
+			"x": 651,
+			"y": 780,
+			"width": 0.5,
+			"height": 180,
+			"angle": 0,
+			"strokeColor": "#2E7D74",
+			"backgroundColor": "transparent",
+			"fillStyle": "solid",
+			"strokeWidth": 2,
+			"strokeStyle": "solid",
+			"roughness": 1,
+			"opacity": 100,
+			"groupIds": [],
+			"frameId": null,
+			"roundness": null,
+			"seed": 572,
+			"version": 1,
+			"versionNonce": 572,
+			"isDeleted": false,
+			"boundElements": [],
+			"updated": 1,
+			"link": null,
+			"locked": false,
+			"points": [
+				[
+					0,
+					0
+				],
+				[
+					0,
+					16
+				],
+				[
+					-0.004458161865613874,
+					24.567352537722854
+				],
+				[
+					-0.01714677640620721,
+					33.012894375857286
+				],
+				[
+					-0.03703703703706651,
+					41.35185185185196
+				],
+				[
+					-0.06310013717416041,
+					49.599451303154865
+				],
+				[
+					-0.09430727023311647,
+					57.770919067215345
+				],
+				[
+					-0.12962962962956226,
+					65.8814814814815
+				],
+				[
+					-0.16803840877901166,
+					73.94636488340188
+				],
+				[
+					-0.2085048010974333,
+					81.98079561042528
+				],
+				[
+					-0.25,
+					90
+				],
+				[
+					-0.291495198902453,
+					98.01920438957472
+				],
+				[
+					-0.33196159122087465,
+					106.05363511659812
+				],
+				[
+					-0.37037037037032405,
+					114.11851851851861
+				],
+				[
+					-0.40569272976676984,
+					122.22908093278465
+				],
+				[
+					-0.4368998628258396,
+					130.40054869684514
+				],
+				[
+					-0.4629629629629335,
+					138.64814814814827
+				],
+				[
+					-0.4828532235939065,
+					146.9871056241427
+				],
+				[
+					-0.4955418381344998,
+					155.43264746227715
+				],
+				[
+					-0.5,
+					164
+				],
+				[
+					-0.5,
+					180
+				]
+			],
+			"lastCommittedPoint": null,
+			"startBinding": {
+				"elementId": "shape-CR-000000k0",
+				"focus": 0,
+				"gap": 8
+			},
+			"endBinding": {
+				"elementId": "shape-Sidecars-000000is",
+				"focus": 0,
+				"gap": 8
+			},
+			"startArrowhead": null,
+			"endArrowhead": "arrow",
+			"elbowed": false,
+			"index": null
+		}
+	],
+	"appState": {
+		"viewBackgroundColor": "#FBF7EE",
+		"theme": "light",
+		"gridSize": null,
+		"exportBackground": true,
+		"exportEmbedScene": true,
+		"exportScale": 1,
+		"currentItemFontFamily": 5
+	},
+	"files": {}
+}
