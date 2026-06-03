@@ -31,18 +31,8 @@ mfconv convert-batch -m <mappings-dir> -s <sources-dir> -t <templates-dir> -o <o
 
 ## Output layout
 
-```text
-<output>/
-├── PO-2026-0001__AcquisitionOrder.pdf
-├── PO-2026-0001__InventorySheet.xlsx
-├── PO-2026-0002__AcquisitionOrder.pdf
-├── InventorySnapshot-2026-04-08__InventorySheet.xlsx
-└── reports/
-    ├── PO-2026-0001__AcquisitionOrder.pdf.report.json
-    ├── PO-2026-0001__InventorySheet.xlsx.report.json
-    ├── PO-2026-0002__AcquisitionOrder.pdf.report.json
-    └── InventorySnapshot-2026-04-08__InventorySheet.xlsx.report.json
-```
+<!-- bespoke diagram: edit diagrams/output-layout.mmd or .hints.json, then: npx pict-renderer-graph build modules/utility/manyfest-conversion/docs/cli -->
+![Output layout](diagrams/output-layout.svg)
 
 Output filename convention: `<sourceBase>__<sanitizedTargetName>` where `sourceBase` is the source JSON filename without `.json` and `sanitizedTargetName` is the target filename with non-alphanumeric characters replaced by underscores.
 

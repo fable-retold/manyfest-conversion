@@ -62,27 +62,5 @@ The templates referenced in the examples (`template.pdf`, `template.xlsx`) are *
 
 ## Example data layout
 
-```text
-docs/examples/
-├── README.md                       (this file)
-├── bookstore-acquisition.md
-├── library-catalog.md
-├── irs-w9.md
-└── data/
-    ├── bookstore/
-    │   ├── mappings.csv
-    │   ├── source.json
-    │   └── built-mappings/
-    │       ├── AcquisitionOrder.pdf.mapping.json
-    │       └── InventorySheet.xlsx.mapping.json
-    ├── library/
-    │   ├── mappings.csv
-    │   ├── source.json
-    │   └── built-mappings/
-    │       └── CatalogInventory.xlsx.mapping.json
-    └── irs-w9/
-        ├── mappings.csv
-        ├── source.json
-        └── built-mappings/
-            └── fw9.pdf.mapping.json
-```
+<!-- bespoke diagram: edit diagrams/example-data-layout.mmd or .hints.json, then: npx pict-renderer-graph build modules/utility/manyfest-conversion/docs/examples -->
+![Example data layout](diagrams/example-data-layout.svg)
