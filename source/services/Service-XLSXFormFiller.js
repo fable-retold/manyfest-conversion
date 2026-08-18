@@ -303,18 +303,66 @@ class XLSXFormFiller extends libFableServiceProviderBase
 	}
 
 	/**
+	 * Coerce a resolved source value to the JS type exceljs should store,
+	 * based on the descriptor's TargetFieldType.
+	 *
+	 * `Number` targets are written as real numeric cells so downstream Excel
+	 * formulas (SUM/AVERAGE/arithmetic) treat them as values.  The platform
+	 * payloads stringify everything, so a numeric value arrives here as a
+	 * string like "304"; storing that verbatim lands it in the sharedStrings
+	 * table as text, which Excel flags "number stored as text" and which
+	 * breaks any formula that references the cell.  (Google Sheets silently
+	 * coerces such text on load, which masked this for a long time.)
+	 *
+	 * Everything else keeps the historical string behaviour.  A `Number`
+	 * target whose value is blank stays blank (rather than becoming 0), and
+	 * one whose value is not actually numeric falls back to text so we never
+	 * write NaN or silently drop the human-visible content.
+	 */
+	coerceCellValue(pValue, pTargetFieldType)
+	{
+		if (String(pTargetFieldType || 'Text') !== 'Number')
+		{
+			return String(pValue);
+		}
+
+		if (pValue === null || typeof(pValue) === 'undefined')
+		{
+			return null;
+		}
+		if (typeof(pValue) === 'number')
+		{
+			return Number.isFinite(pValue) ? pValue : String(pValue);
+		}
+
+		const tmpTrimmed = String(pValue).trim();
+		if (tmpTrimmed === '')
+		{
+			// Blank source for a numeric field — leave the cell empty, don't write 0.
+			return null;
+		}
+		const tmpNumber = Number(tmpTrimmed);
+		if (Number.isFinite(tmpNumber))
+		{
+			return tmpNumber;
+		}
+		// Declared Number but the value isn't numeric — keep the text so the
+		// human-visible content survives rather than writing NaN.
+		return String(pValue);
+	}
+
+	/**
 	 * Write a single value into a cell on an exceljs worksheet, preserving
 	 * the cell's existing style.  Setting cell.value on an exceljs Cell
 	 * leaves the style metadata intact, which is the whole point of using
 	 * exceljs over the SheetJS community edition for this filler.
+	 *
+	 * pTargetFieldType selects the stored cell type — see coerceCellValue.
 	 */
-	writeCellValue(pWorksheet, pCellAddress, pValue)
+	writeCellValue(pWorksheet, pCellAddress, pValue, pTargetFieldType)
 	{
 		const tmpCell = pWorksheet.getCell(pCellAddress);
-		// Coerce to string because the platform payloads stringify everything
-		// and the target spreadsheets are designed for human review, not
-		// downstream formula math.
-		tmpCell.value = String(pValue);
+		tmpCell.value = this.coerceCellValue(pValue, pTargetFieldType);
 	}
 
 	/**
@@ -415,7 +463,7 @@ class XLSXFormFiller extends libFableServiceProviderBase
 					{
 						try
 						{
-							this.writeCellValue(tmpWorksheet, tmpTargetSpec.cellAddresses[0], tmpResolved.value);
+							this.writeCellValue(tmpWorksheet, tmpTargetSpec.cellAddresses[0], tmpResolved.value, tmpTarget.TargetFieldType);
 							pConversionReportService.logSuccess(pReport, tmpTargetFieldRaw, tmpFullAddress, tmpResolved.value);
 						}
 						catch (pError)
@@ -458,7 +506,7 @@ class XLSXFormFiller extends libFableServiceProviderBase
 					}
 					try
 					{
-						this.writeCellValue(tmpWorksheet, tmpCellAddress, tmpElement.value);
+						this.writeCellValue(tmpWorksheet, tmpCellAddress, tmpElement.value, tmpTarget.TargetFieldType);
 						pConversionReportService.logSuccess(
 							pReport,
 							`${tmpTargetFieldRaw} -> ${tmpCellAddress}`,
