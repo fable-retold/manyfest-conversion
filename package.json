@@ -1,6 +1,6 @@
 {
 	"name": "manyfest-conversion",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Build mapping manyfests from CSVs, then fill PDF forms and XLSX spreadsheets from platform JSON payloads.",
 	"main": "source/Manyfest-Conversion.js",
 	"bin": {
