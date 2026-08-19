@@ -293,3 +293,121 @@ suite
 			});
 	}
 );
+
+suite
+(
+	'XLSXFormFiller: TargetFieldType coercion (Number vs Text)',
+	() =>
+	{
+		const libManyfest = require('manyfest');
+
+		test('coerceCellValue maps Number targets to real numbers and leaves Text as strings',
+			() =>
+			{
+				const tmpFable = new libPict();
+				tmpFable.addServiceType('XLSXFormFiller', libXLSXFormFiller);
+				const tmpSvc = tmpFable.instantiateServiceProvider('XLSXFormFiller');
+
+				// Number type — numeric values become real numbers
+				libAssert.equal(tmpSvc.coerceCellValue('304', 'Number'), 304);
+				libAssert.equal(tmpSvc.coerceCellValue('20.15', 'Number'), 20.15);
+				libAssert.equal(tmpSvc.coerceCellValue(7, 'Number'), 7);
+				// Number type — blank stays blank (not 0), non-numeric falls back to text
+				libAssert.equal(tmpSvc.coerceCellValue('', 'Number'), null);
+				libAssert.equal(tmpSvc.coerceCellValue('N/A', 'Number'), 'N/A');
+				// Text (and default / missing type) always stringify
+				libAssert.equal(tmpSvc.coerceCellValue('007', 'Text'), '007');
+				libAssert.equal(tmpSvc.coerceCellValue(5, 'Text'), '5');
+				libAssert.equal(tmpSvc.coerceCellValue('304'), '304');
+			});
+
+		test('fillXLSX writes Number targets as numeric cells and Text targets as strings',
+			async function()
+			{
+				const tmpFable = new libPict();
+				tmpFable.addServiceType('XLSXFormFiller', libXLSXFormFiller);
+				tmpFable.addServiceType('ConversionReport', libConversionReport);
+				const tmpFiller = tmpFable.instantiateServiceProvider('XLSXFormFiller');
+				const tmpReporter = tmpFable.instantiateServiceProvider('ConversionReport');
+
+				const tmpManyfest = new libManyfest();
+				tmpManyfest.loadManifest(
+					{
+						Scope: 'test',
+						Descriptors:
+						{
+							'NumFromNumber':    { Name: 'a', DataType: 'Number', TargetFieldName: 'Sheet1!A1', TargetFieldType: 'Number' },
+							'NumFromString':    { Name: 'b', DataType: 'Number', TargetFieldName: 'Sheet1!A2', TargetFieldType: 'Number' },
+							'TextLeadingZero':  { Name: 'c', DataType: 'String', TargetFieldName: 'Sheet1!A3', TargetFieldType: 'Text' },
+							'NumButBlank':      { Name: 'd', DataType: 'Number', TargetFieldName: 'Sheet1!A4', TargetFieldType: 'Number' },
+							'NumButNonNumeric': { Name: 'e', DataType: 'Number', TargetFieldName: 'Sheet1!A5', TargetFieldType: 'Number' },
+							'NumArray[].v':     { Name: 'f', DataType: 'Number', TargetFieldName: 'Sheet1!B1:B3', TargetFieldType: 'Number' },
+						},
+					});
+
+				const tmpSourceData =
+				{
+					NumFromNumber: 304,
+					NumFromString: '20.15',
+					TextLeadingZero: '007',
+					NumButBlank: '',
+					NumButNonNumeric: 'N/A',
+					NumArray: [ { v: '1' }, { v: '2.5' }, { v: '3' } ],
+				};
+
+				// Minimal template with a pre-set number format on A1 so we can also
+				// assert the fill preserves the cell's style.
+				const tmpTempDir = libFS.mkdtempSync(libPath.join(libOS.tmpdir(), 'mfconv-xlsx-numtype-'));
+				const tmpTemplatePath = libPath.join(tmpTempDir, 'template.xlsx');
+				const tmpOutputPath = libPath.join(tmpTempDir, 'output.xlsx');
+
+				const tmpTemplateWB = new libExcelJS.Workbook();
+				const tmpTemplateWS = tmpTemplateWB.addWorksheet('Sheet1');
+				tmpTemplateWS.getCell('A1').numFmt = '0.00';
+				await tmpTemplateWB.xlsx.writeFile(tmpTemplatePath);
+
+				const tmpReport = tmpReporter.newReport('test-source.json', 'test-mapping', tmpManyfest);
+
+				try
+				{
+					await tmpFiller.fillXLSX(tmpManyfest, tmpSourceData, tmpTemplatePath, tmpOutputPath, tmpReport, tmpReporter);
+
+					const tmpWB = new libExcelJS.Workbook();
+					await tmpWB.xlsx.readFile(tmpOutputPath);
+					const tmpWS = tmpWB.getWorksheet('Sheet1');
+
+					// Number targets → numeric cells (the fix)
+					libAssert.equal(tmpWS.getCell('A1').type, libExcelJS.ValueType.Number, 'A1 should be numeric');
+					libAssert.equal(tmpWS.getCell('A1').value, 304);
+					libAssert.equal(tmpWS.getCell('A2').type, libExcelJS.ValueType.Number, 'A2 should be numeric');
+					libAssert.equal(tmpWS.getCell('A2').value, 20.15);
+
+					// Text target → string cell, leading zero preserved
+					libAssert.equal(tmpWS.getCell('A3').type, libExcelJS.ValueType.String, 'A3 should be a string');
+					libAssert.equal(tmpWS.getCell('A3').value, '007');
+
+					// Number target, blank source → empty cell (not 0)
+					libAssert.equal(tmpWS.getCell('A4').type, libExcelJS.ValueType.Null, 'A4 should be blank');
+
+					// Number target, non-numeric source → text fallback (never NaN)
+					libAssert.equal(tmpWS.getCell('A5').type, libExcelJS.ValueType.String, 'A5 should fall back to string');
+					libAssert.equal(tmpWS.getCell('A5').value, 'N/A');
+
+					// Number array broadcast → all numeric (covers the second write path)
+					libAssert.equal(tmpWS.getCell('B1').type, libExcelJS.ValueType.Number);
+					libAssert.equal(tmpWS.getCell('B1').value, 1);
+					libAssert.equal(tmpWS.getCell('B2').value, 2.5);
+					libAssert.equal(tmpWS.getCell('B3').value, 3);
+
+					// Styling survives the fill (regression guard on writeCellValue).
+					libAssert.equal(tmpWS.getCell('A1').numFmt, '0.00');
+				}
+				finally
+				{
+					try { libFS.unlinkSync(tmpTemplatePath); } catch (pError) { /* ignore */ }
+					try { libFS.unlinkSync(tmpOutputPath); } catch (pError) { /* ignore */ }
+					try { libFS.rmdirSync(tmpTempDir); } catch (pError) { /* ignore */ }
+				}
+			});
+	}
+);
