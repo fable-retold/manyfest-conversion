@@ -17,6 +17,10 @@ const PDFTK_BINARY_CANDIDATES = ['pdftk', 'pdftk-java'];
  *
  * `pdftk` must be on the caller's PATH; install on macOS via
  * `brew install pdftk-java` or on Debian/Ubuntu via `apt install pdftk`.
+ *
+ * When a PDFFormCalculator is supplied (fillPDFWithCalculations), the template's own embedded
+ * calculation JavaScript is run after the mapped input values are resolved, so derived cells compute
+ * exactly as they would if a user filled the form in Acrobat.
  */
 class PDFFormFiller extends libFableServiceProviderBase
 {
@@ -251,20 +255,22 @@ class PDFFormFiller extends libFableServiceProviderBase
 	}
 
 	/**
-	 * Build an XFDF document from a mapping manyfest + source data object.
-	 * This is a pure function (no IO, no pdftk) and returns both the XFDF
-	 * string and a structured report describing which descriptors were
-	 * emitted, skipped, or errored.
+	 * Resolve every mapped descriptor against the source payload into an ordered list of
+	 * { FieldName, Value } targets, logging success / warning / error onto the ConversionReport as it
+	 * goes.  This is the resolution half of buildXFDF, factored out so a calculation pass can run
+	 * between resolution and XFDF generation.
 	 *
 	 * @param {object} pMappingManyfest - Live Manyfest instance
 	 * @param {object} pSourceData - The platform JSON payload (root level)
-	 * @param {object} pReport - ConversionReport to annotate (required)
+	 * @param {object} pReport - ConversionReport to annotate
 	 * @param {object} pConversionReportService - The ConversionReport service
-	 * @returns {{ xfdf: string, fieldCount: number }}
+	 * @returns {{ Fields: Array<{FieldName:string, Value:*}>, ValueMap: Object }}
 	 */
-	buildXFDF(pMappingManyfest, pSourceData, pReport, pConversionReportService)
+	resolveMappedValues(pMappingManyfest, pSourceData, pReport, pConversionReportService)
 	{
-		const tmpFieldLines = [];
+		const tmpFields = [];
+		const tmpValueMap = {};
+
 		const tmpManifestData = pMappingManyfest.manifest || {};
 		const tmpSourceRoot = tmpManifestData.SourceRootAddress || '';
 
@@ -345,12 +351,31 @@ class PDFFormFiller extends libFableServiceProviderBase
 					continue;
 				}
 
-				const tmpEscapedName = this.escapeXML(tmpFieldName);
-				const tmpEscapedValue = this.escapeXML(tmpValue);
-				tmpFieldLines.push(`    <field name="${tmpEscapedName}"><value>${tmpEscapedValue}</value></field>`);
+				tmpFields.push({ FieldName: tmpFieldName, Value: tmpValue });
+				tmpValueMap[tmpFieldName] = tmpValue;
 
 				pConversionReportService.logSuccess(pReport, tmpFieldName, tmpFullAddress, tmpValue);
 			}
+		}
+
+		return { Fields: tmpFields, ValueMap: tmpValueMap };
+	}
+
+	/**
+	 * Build an XFDF document from an ordered list of { FieldName, Value } targets.  Pure function.
+	 *
+	 * @param {Array<{FieldName:string, Value:*}>} pFields
+	 * @returns {{ xfdf: string, fieldCount: number }}
+	 */
+	buildXFDFFromFields(pFields)
+	{
+		const tmpFieldLines = [];
+		const tmpList = pFields || [];
+		for (let i = 0; i < tmpList.length; i++)
+		{
+			const tmpEscapedName = this.escapeXML(tmpList[i].FieldName);
+			const tmpEscapedValue = this.escapeXML(tmpList[i].Value);
+			tmpFieldLines.push(`    <field name="${tmpEscapedName}"><value>${tmpEscapedValue}</value></field>`);
 		}
 
 		const tmpXFDF = [
@@ -364,6 +389,24 @@ class PDFFormFiller extends libFableServiceProviderBase
 		].join('\n');
 
 		return { xfdf: tmpXFDF, fieldCount: tmpFieldLines.length };
+	}
+
+	/**
+	 * Build an XFDF document from a mapping manyfest + source data object.
+	 * This is a pure function (no IO, no pdftk) and returns both the XFDF
+	 * string and a structured report describing which descriptors were
+	 * emitted, skipped, or errored.
+	 *
+	 * @param {object} pMappingManyfest - Live Manyfest instance
+	 * @param {object} pSourceData - The platform JSON payload (root level)
+	 * @param {object} pReport - ConversionReport to annotate (required)
+	 * @param {object} pConversionReportService - The ConversionReport service
+	 * @returns {{ xfdf: string, fieldCount: number }}
+	 */
+	buildXFDF(pMappingManyfest, pSourceData, pReport, pConversionReportService)
+	{
+		const tmpResolved = this.resolveMappedValues(pMappingManyfest, pSourceData, pReport, pConversionReportService);
+		return this.buildXFDFFromFields(tmpResolved.Fields);
 	}
 
 	/**
@@ -394,8 +437,32 @@ class PDFFormFiller extends libFableServiceProviderBase
 	}
 
 	/**
+	 * Write an XFDF string to a temp file, run pdftk to apply it to the template, and clean up.
+	 *
+	 * @param {string} pTemplatePDFPath
+	 * @param {string} pXFDF
+	 * @param {string} pOutputPDFPath
+	 */
+	writeAndRunPDFTK(pTemplatePDFPath, pXFDF, pOutputPDFPath)
+	{
+		const tmpTempDir = libFS.mkdtempSync(libPath.join(libOS.tmpdir(), 'mfconv-'));
+		const tmpXFDFPath = libPath.join(tmpTempDir, 'fill.xfdf');
+		try
+		{
+			libFS.writeFileSync(tmpXFDFPath, pXFDF, 'utf8');
+			this.runPDFTK(pTemplatePDFPath, tmpXFDFPath, pOutputPDFPath);
+		}
+		finally
+		{
+			try { libFS.unlinkSync(tmpXFDFPath); } catch (pCleanupError) { /* ignore */ }
+			try { libFS.rmdirSync(tmpTempDir); } catch (pCleanupError) { /* ignore */ }
+		}
+	}
+
+	/**
 	 * End-to-end fill: build XFDF, write it to a temp file, run pdftk,
-	 * clean up.
+	 * clean up.  Does NOT run the form's calculation scripts -- see
+	 * fillPDFWithCalculations for "fill the math like Acrobat" behavior.
 	 *
 	 * @param {object} pMappingManyfest - Live Manyfest instance
 	 * @param {object} pSourceData - The platform JSON payload
@@ -416,25 +483,108 @@ class PDFFormFiller extends libFableServiceProviderBase
 
 		const tmpBuild = this.buildXFDF(pMappingManyfest, pSourceData, pReport, pConversionReportService);
 
-		const tmpTempDir = libFS.mkdtempSync(libPath.join(libOS.tmpdir(), 'mfconv-'));
-		const tmpXFDFPath = libPath.join(tmpTempDir, 'fill.xfdf');
 		try
 		{
-			libFS.writeFileSync(tmpXFDFPath, tmpBuild.xfdf, 'utf8');
-			this.runPDFTK(pTemplatePDFPath, tmpXFDFPath, pOutputPDFPath);
+			this.writeAndRunPDFTK(pTemplatePDFPath, tmpBuild.xfdf, pOutputPDFPath);
 		}
 		catch (pError)
 		{
 			pConversionReportService.logError(pReport, null, null, `PDF fill failed: ${pError.message}`);
 			pConversionReportService.finalize(pReport);
-			// Cleanup best-effort
-			try { libFS.unlinkSync(tmpXFDFPath); } catch (pCleanupError) { /* ignore */ }
-			try { libFS.rmdirSync(tmpTempDir); } catch (pCleanupError) { /* ignore */ }
 			throw pError;
 		}
 
-		try { libFS.unlinkSync(tmpXFDFPath); } catch (pCleanupError) { /* ignore */ }
-		try { libFS.rmdirSync(tmpTempDir); } catch (pCleanupError) { /* ignore */ }
+		pConversionReportService.finalize(pReport);
+		return pReport;
+	}
+
+	/**
+	 * End-to-end fill that ALSO runs the template's own embedded calculation JavaScript, so derived
+	 * cells compute exactly as they would if a user filled the form in Acrobat.
+	 *
+	 * Flow: resolve the mapped (input) values, run the form's `/CO` calculation chain seeded with them
+	 * via the PDFFormCalculator, merge the computed values over the mapped ones (a calculated field is
+	 * authoritative, as in Acrobat), then build the XFDF and run pdftk.
+	 *
+	 * A calculation failure is a warning, never fatal: the fill still produces the mapped values.
+	 *
+	 * @param {object} pMappingManyfest - Live Manyfest instance
+	 * @param {object} pSourceData - The platform JSON payload
+	 * @param {string} pTemplatePDFPath
+	 * @param {string} pOutputPDFPath
+	 * @param {object} pReport - ConversionReport to annotate
+	 * @param {object} pConversionReportService
+	 * @param {object} pCalculator - A PDFFormCalculator instance (required for the calculation pass)
+	 * @param {object} [pOptions] - { Calculate=true, MaxPasses, TimeoutMS }
+	 * @returns {Promise<object>} the (same) report, with stats finalized
+	 */
+	async fillPDFWithCalculations(pMappingManyfest, pSourceData, pTemplatePDFPath, pOutputPDFPath, pReport, pConversionReportService, pCalculator, pOptions)
+	{
+		const tmpOptions = pOptions || {};
+
+		if (!libFS.existsSync(pTemplatePDFPath))
+		{
+			pConversionReportService.logError(pReport, null, null, `Template PDF does not exist: ${pTemplatePDFPath}`);
+			pConversionReportService.finalize(pReport);
+			throw new Error(`Template PDF does not exist: ${pTemplatePDFPath}`);
+		}
+
+		const tmpResolved = this.resolveMappedValues(pMappingManyfest, pSourceData, pReport, pConversionReportService);
+		const tmpFields = tmpResolved.Fields.slice();
+
+		// Run the form's own calculation scripts, seeded with the resolved input values.
+		if (pCalculator && tmpOptions.Calculate !== false)
+		{
+			try
+			{
+				const tmpCalcResult = await pCalculator.computeCalculatedFields(pTemplatePDFPath, tmpResolved.ValueMap, tmpOptions);
+				const tmpComputedNames = Object.keys(tmpCalcResult.Values || {});
+				const tmpIndexByName = {};
+				for (let i = 0; i < tmpFields.length; i++)
+				{
+					tmpIndexByName[tmpFields[i].FieldName] = i;
+				}
+				for (let i = 0; i < tmpComputedNames.length; i++)
+				{
+					const tmpName = tmpComputedNames[i];
+					const tmpValue = tmpCalcResult.Values[tmpName];
+					if (Object.prototype.hasOwnProperty.call(tmpIndexByName, tmpName))
+					{
+						// A calculated field is authoritative (Acrobat recomputes it), so override the mapped value.
+						tmpFields[tmpIndexByName[tmpName]].Value = tmpValue;
+					}
+					else
+					{
+						tmpFields.push({ FieldName: tmpName, Value: tmpValue });
+					}
+					pConversionReportService.logSuccess(pReport, tmpName, '(calculated by form JavaScript)', tmpValue);
+				}
+
+				// Surface any field that HAS a calc script but could not be evaluated — never a silent blank.
+				const tmpSkipped = Array.isArray(tmpCalcResult.Skipped) ? tmpCalcResult.Skipped : [];
+				for (let s = 0; s < tmpSkipped.length; s++)
+				{
+					pConversionReportService.logWarning(pReport, tmpSkipped[s].Field, '(calculation)', `Field has a calculation script that could not be evaluated: ${tmpSkipped[s].Message}`);
+				}
+			}
+			catch (pError)
+			{
+				pConversionReportService.logWarning(pReport, null, null, `Calculation pass failed; filled mapped values only: ${pError.message}`);
+			}
+		}
+
+		const tmpBuild = this.buildXFDFFromFields(tmpFields);
+
+		try
+		{
+			this.writeAndRunPDFTK(pTemplatePDFPath, tmpBuild.xfdf, pOutputPDFPath);
+		}
+		catch (pError)
+		{
+			pConversionReportService.logError(pReport, null, null, `PDF fill failed: ${pError.message}`);
+			pConversionReportService.finalize(pReport);
+			throw pError;
+		}
 
 		pConversionReportService.finalize(pReport);
 		return pReport;

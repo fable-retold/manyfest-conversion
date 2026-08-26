@@ -17,11 +17,12 @@ class ManyfestConversionCommandFillPDF extends libCommandLineCommand
 		this.options.CommandOptions.push({ Name: '-o, --output [filepath]', Description: 'The filled PDF output path.' });
 		this.options.CommandOptions.push({ Name: '-r, --source-root [address]', Description: 'Override the mapping manyfest SourceRootAddress.' });
 		this.options.CommandOptions.push({ Name: '--sidecar [filepath]', Description: 'Sidecar report path.  Defaults to <output>.report.json.' });
+		this.options.CommandOptions.push({ Name: '--no-calculate', Description: 'Do not run the form\'s embedded calculation scripts (leave derived cells uncomputed).' });
 
 		this.addCommand();
 	}
 
-	onRunAsync(fCallback)
+	async onRunAsync(fCallback)
 	{
 		const tmpOperationState = (
 			{
@@ -47,6 +48,7 @@ class ManyfestConversionCommandFillPDF extends libCommandLineCommand
 		this.fable.instantiateServiceProvider('FilePersistence');
 		this.fable.addAndInstantiateServiceTypeIfNotExists('MappingManyfestBuilder', require('../../services/Service-MappingManyfestBuilder.js'));
 		this.fable.addAndInstantiateServiceTypeIfNotExists('PDFFormFiller', require('../../services/Service-PDFFormFiller.js'));
+		this.fable.addAndInstantiateServiceTypeIfNotExists('PDFFormCalculator', require('../../services/Service-PDFFormCalculator.js'));
 		this.fable.addAndInstantiateServiceTypeIfNotExists('ConversionReport', require('../../services/Service-ConversionReport.js'));
 
 		tmpOperationState.MappingFilePath = this.fable.FilePersistence.resolvePath(tmpOperationState.RawMappingFile);
@@ -106,15 +108,18 @@ class ManyfestConversionCommandFillPDF extends libCommandLineCommand
 			tmpMappingManyfest.manifest ? tmpMappingManyfest.manifest.TargetFile : tmpOperationState.TemplateFilePath,
 			tmpMappingManyfest);
 
+		const tmpCalculate = (this.CommandOptions.calculate !== false);
 		try
 		{
-			this.fable.PDFFormFiller.fillPDF(
+			await this.fable.PDFFormFiller.fillPDFWithCalculations(
 				tmpMappingManyfest,
 				tmpSourceData,
 				tmpOperationState.TemplateFilePath,
 				tmpOperationState.OutputFilePath,
 				tmpReport,
-				this.fable.ConversionReport);
+				this.fable.ConversionReport,
+				this.fable.PDFFormCalculator,
+				{ Calculate: tmpCalculate });
 		}
 		catch (pError)
 		{

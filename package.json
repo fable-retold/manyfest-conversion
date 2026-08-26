@@ -47,6 +47,7 @@
 		"fable": "^3.1.75",
 		"fable-serviceproviderbase": "^3.0.19",
 		"manyfest": "^1.0.49",
+		"pdf-lib": "^1.17.1",
 		"pict": "^1.0.372",
 		"pict-service-commandlineutility": "^1.0.19",
 		"xlsx": "^0.18.5"
