@@ -191,3 +191,54 @@ suite
 			});
 	}
 );
+
+suite
+(
+	'PDFFormCalculator: format + validate (display + color)',
+	() =>
+	{
+		const validateColorScript = 'if (Number(event.value) < 86) { event.target.textColor = color.red; } else { event.target.textColor = color.black; }';
+
+		test('format script produces the Acrobat display string; it does not change the stored value',
+			() =>
+			{
+				const tmpCalc = buildCalculator();
+				const tmpResult = tmpCalc.runFormatAndValidate(
+					{ Order: ['n'], FormatScripts: { n: 'AFNumber_Format(2, 0, 0, 0, "", false);' } },
+					{ n: '1234.5' });
+				libAssert.equal(tmpResult.DisplayValues.n, '1,234.50');
+			});
+
+		test('validate script sets black for an in-spec value and red for out-of-spec',
+			() =>
+			{
+				const tmpCalc = buildCalculator();
+				const tmpIn = tmpCalc.runFormatAndValidate(
+					{ Order: ['f'], ValidateScripts: { f: validateColorScript } }, { f: '93.6' });
+				libAssert.deepEqual(tmpIn.Colors.f, ['G', 0]);          // black
+
+				const tmpOut = tmpCalc.runFormatAndValidate(
+					{ Order: ['f'], ValidateScripts: { f: validateColorScript } }, { f: '50' });
+				libAssert.deepEqual(tmpOut.Colors.f, ['RGB', 1, 0, 0]); // red
+			});
+
+		test('a field whose validate script does not touch color is not recolored',
+			() =>
+			{
+				const tmpCalc = buildCalculator();
+				const tmpResult = tmpCalc.runFormatAndValidate(
+					{ Order: ['x'], ValidateScripts: { x: 'event.rc = true;' } }, { x: '5' });
+				libAssert.equal(Object.prototype.hasOwnProperty.call(tmpResult.Colors, 'x'), false);
+			});
+
+		test('_colorOperator maps Acrobat color arrays to PDF /DA operators',
+			() =>
+			{
+				const tmpCalc = buildCalculator();
+				libAssert.equal(tmpCalc._colorOperator(['G', 0]), '0 g');
+				libAssert.equal(tmpCalc._colorOperator(['RGB', 1, 0, 0]), '1 0 0 rg');
+				libAssert.equal(tmpCalc._colorOperator(['CMYK', 0, 0, 0, 1]), '0 0 0 1 k');
+				libAssert.equal(tmpCalc._colorOperator(['T']), null);
+			});
+	}
+);

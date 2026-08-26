@@ -628,6 +628,7 @@ class Field
 		this.display = 0;
 		this.type = 'text';
 		this._textColor = ['G', 0];
+		this._textColorSet = false;
 	}
 
 	get value() { const tmpValue = this._state.get(this.name); return (tmpValue == null) ? '' : tmpValue; }
@@ -635,7 +636,7 @@ class Field
 	get valueAsString() { const tmpValue = this.value; return (tmpValue == null) ? '' : String(tmpValue); }
 	set valueAsString(pValue) { this._state.set(this.name, pValue); }
 	get textColor() { return this._textColor; }
-	set textColor(pColor) { this._textColor = pColor; }
+	set textColor(pColor) { this._textColor = pColor; this._textColorSet = true; }
 
 	getArray() { return [this]; }
 	getItemAt() { return null; }
@@ -749,12 +750,12 @@ function tmpState_numFields(pState) { return pState.names.length; }
  * @param {string} pFieldName
  * @returns {object}
  */
-function makeCalculateEvent(pDoc, pFieldName)
+function makeFieldEvent(pDoc, pFieldName, pEventName)
 {
 	const tmpField = pDoc.getField(pFieldName);
 	return {
 		type: 'Field',
-		name: 'Calculate',
+		name: pEventName || 'Calculate',
 		target: tmpField,
 		targetName: pFieldName,
 		source: tmpField,
@@ -768,4 +769,6 @@ function makeCalculateEvent(pDoc, pFieldName)
 	};
 }
 
-module.exports = { buildSandbox, makeCalculateEvent, AForm, Util, Color, DateFormats, TimeFormats };
+function makeCalculateEvent(pDoc, pFieldName) { return makeFieldEvent(pDoc, pFieldName, 'Calculate'); }
+
+module.exports = { buildSandbox, makeCalculateEvent, makeFieldEvent, AForm, Util, Color, DateFormats, TimeFormats };

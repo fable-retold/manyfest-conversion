@@ -163,6 +163,19 @@ class PDFFormCalculator extends libFableServiceProviderBase
 
 		const tmpValues = {};
 		const tmpScripts = {};
+		const tmpFormatScripts = {};
+		const tmpValidateScripts = {};
+
+		// Read the JavaScript of a field additional-action (/AA <key>), if present.
+		const fActionJS = (pAA, pKey) =>
+		{
+			const tmpAction = this._resolve(tmpContext, pAA.get(libPDFLib.PDFName.of(pKey)), libPDFLib);
+			if (tmpAction && typeof(tmpAction.get) === 'function')
+			{
+				return this._readJavaScript(tmpContext, tmpAction.get(libPDFLib.PDFName.of('JS')), libPDFLib);
+			}
+			return '';
+		};
 
 		const tmpFields = tmpForm.getFields();
 		for (let i = 0; i < tmpFields.length; i++)
@@ -179,19 +192,16 @@ class PDFFormCalculator extends libFableServiceProviderBase
 			const tmpDict = tmpField.acroField.dict;
 			tmpValues[tmpName] = this._objectText(tmpContext, tmpDict.get(libPDFLib.PDFName.of('V')), libPDFLib);
 
-			// /AA /C /JS -- the calculate action script.
+			// Field additional actions: /C calculate, /F format, /V validate (all standard PDF/AcroForm).
 			const tmpAA = this._resolve(tmpContext, tmpDict.get(libPDFLib.PDFName.of('AA')), libPDFLib);
 			if (tmpAA && typeof(tmpAA.get) === 'function')
 			{
-				const tmpCalcAction = this._resolve(tmpContext, tmpAA.get(libPDFLib.PDFName.of('C')), libPDFLib);
-				if (tmpCalcAction && typeof(tmpCalcAction.get) === 'function')
-				{
-					const tmpJS = this._readJavaScript(tmpContext, tmpCalcAction.get(libPDFLib.PDFName.of('JS')), libPDFLib);
-					if (tmpJS)
-					{
-						tmpScripts[tmpName] = tmpJS;
-					}
-				}
+				const tmpCalcJS = fActionJS(tmpAA, 'C');
+				if (tmpCalcJS) { tmpScripts[tmpName] = tmpCalcJS; }
+				const tmpFormatJS = fActionJS(tmpAA, 'F');
+				if (tmpFormatJS) { tmpFormatScripts[tmpName] = tmpFormatJS; }
+				const tmpValidateJS = fActionJS(tmpAA, 'V');
+				if (tmpValidateJS) { tmpValidateScripts[tmpName] = tmpValidateJS; }
 			}
 		}
 
@@ -216,7 +226,7 @@ class PDFFormCalculator extends libFableServiceProviderBase
 
 		const tmpDocScripts = this._extractDocScripts(tmpContext, tmpDocument.catalog, libPDFLib);
 
-		return { Values: tmpValues, Scripts: tmpScripts, Order: tmpOrder, DocScripts: tmpDocScripts };
+		return { Values: tmpValues, Scripts: tmpScripts, FormatScripts: tmpFormatScripts, ValidateScripts: tmpValidateScripts, Order: tmpOrder, DocScripts: tmpDocScripts };
 	}
 
 	/**
@@ -342,6 +352,203 @@ class PDFFormCalculator extends libFableServiceProviderBase
 		const tmpBytes = libFS.readFileSync(pTemplatePDFPath);
 		const tmpModel = await this.extractCalcModel(tmpBytes);
 		return this.runCalculations(tmpModel, pSeedValues || {}, pOptions);
+	}
+
+	/**
+	 * Run the form's Format (/AA/F) and Validate (/AA/V) scripts against the given (already-computed)
+	 * field values -- Acrobat's display-formatting and validation/coloring actions. Returns each
+	 * field's formatted display string, any textColor a validate/format script sets, and which fields
+	 * a validate script rejected. Does NOT change stored values.
+	 *
+	 * @param {object} pModel - from extractCalcModel (FormatScripts/ValidateScripts/DocScripts/Values/Order).
+	 * @param {Object} pValues - the final field values (mapped inputs + calculated results).
+	 * @param {Array<string>} [pTouchedNames] - restrict to these fields (default: all with values).
+	 * @param {Object} [pOptions] - { TimeoutMS=2000 }.
+	 * @returns {{DisplayValues: Object, Colors: Object, Rejected: Array<string>, Warnings: Array<string>}}
+	 */
+	runFormatAndValidate(pModel, pValues, pTouchedNames, pOptions)
+	{
+		const tmpOptions = pOptions || {};
+		const tmpTimeoutMS = (typeof(tmpOptions.TimeoutMS) === 'number') ? tmpOptions.TimeoutMS : 2000;
+
+		const tmpModel = pModel || {};
+		const tmpFormatScripts = tmpModel.FormatScripts || {};
+		const tmpValidateScripts = tmpModel.ValidateScripts || {};
+		const tmpDocScripts = Array.isArray(tmpModel.DocScripts) ? tmpModel.DocScripts : [];
+		const tmpValues = Object.assign({}, tmpModel.Values || {}, pValues || {});
+
+		const fEnsure = (pNameList) => { for (let i = 0; i < pNameList.length; i++) { if (!(pNameList[i] in tmpValues)) { tmpValues[pNameList[i]] = ''; } } };
+		fEnsure(Array.isArray(tmpModel.Order) ? tmpModel.Order : []);
+		fEnsure(Object.keys(tmpModel.Scripts || {}));
+		fEnsure(Object.keys(tmpFormatScripts));
+		fEnsure(Object.keys(tmpValidateScripts));
+
+		const tmpNames = Object.keys(tmpValues);
+		const tmpNameSet = {};
+		for (let i = 0; i < tmpNames.length; i++) { tmpNameSet[tmpNames[i]] = true; }
+		const tmpState = {
+			names: tmpNames,
+			has: (pName) => tmpNameSet[pName] === true,
+			get: (pName) => tmpValues[pName],
+			set: (pName, pValue) => { if (tmpNameSet[pName] !== true) { tmpNameSet[pName] = true; tmpNames.push(pName); } tmpValues[pName] = pValue; }
+		};
+
+		const tmpBuilt = libAcrobatFormsAPI.buildSandbox(tmpState, { fn: null });
+		const tmpContext = libVM.createContext(tmpBuilt.sandbox);
+
+		for (let i = 0; i < tmpDocScripts.length; i++)
+		{
+			try { libVM.runInContext(tmpDocScripts[i], tmpContext, { timeout: tmpTimeoutMS }); }
+			catch (pError) { /* optional */ }
+		}
+
+		const tmpTouched = (Array.isArray(pTouchedNames) && pTouchedNames.length > 0) ? pTouchedNames : tmpNames;
+
+		const tmpDisplayValues = {};
+		const tmpColors = {};
+		const tmpRejected = [];
+
+		for (let i = 0; i < tmpTouched.length; i++)
+		{
+			const tmpName = tmpTouched[i];
+			const tmpField = tmpBuilt.doc.getField(tmpName);
+			if (tmpField) { tmpField._textColorSet = false; }
+
+			// Validate (/AA/V): acceptance + side effects (e.g. textColor).
+			if (typeof(tmpValidateScripts[tmpName]) === 'string' && tmpValidateScripts[tmpName].trim())
+			{
+				const tmpEvent = libAcrobatFormsAPI.makeFieldEvent(tmpBuilt.doc, tmpName, 'Validate');
+				tmpBuilt.setEvent(tmpEvent);
+				try
+				{
+					libVM.runInContext(tmpValidateScripts[tmpName], tmpContext, { timeout: tmpTimeoutMS });
+					if (tmpEvent.rc === false) { tmpRejected.push(tmpName); }
+				}
+				catch (pError) { /* a failed validate must not abort the fill */ }
+			}
+
+			// Format (/AA/F): the display string. Does NOT change the stored value.
+			if (typeof(tmpFormatScripts[tmpName]) === 'string' && tmpFormatScripts[tmpName].trim())
+			{
+				const tmpEvent = libAcrobatFormsAPI.makeFieldEvent(tmpBuilt.doc, tmpName, 'Format');
+				tmpBuilt.setEvent(tmpEvent);
+				try
+				{
+					libVM.runInContext(tmpFormatScripts[tmpName], tmpContext, { timeout: tmpTimeoutMS });
+					tmpDisplayValues[tmpName] = tmpEvent.value;
+				}
+				catch (pError) { /* a failed format leaves the raw value */ }
+			}
+
+			if (tmpField && tmpField._textColorSet)
+			{
+				tmpColors[tmpName] = tmpField.textColor;
+			}
+		}
+
+		return { DisplayValues: tmpDisplayValues, Colors: tmpColors, Rejected: tmpRejected, Warnings: tmpBuilt.warnings };
+	}
+
+	/**
+	 * Convert an Acrobat color array (['G',g] | ['RGB',r,g,b] | ['CMYK',c,m,y,k]) to the PDF /DA
+	 * color operator string, or null for transparent/unsupported.
+	 */
+	_colorOperator(pColor)
+	{
+		if (!Array.isArray(pColor) || pColor.length === 0) { return null; }
+		const tmpSpace = pColor[0];
+		if (tmpSpace === 'G' && pColor.length >= 2) { return `${pColor[1]} g`; }
+		if (tmpSpace === 'RGB' && pColor.length >= 4) { return `${pColor[1]} ${pColor[2]} ${pColor[3]} rg`; }
+		if (tmpSpace === 'CMYK' && pColor.length >= 5) { return `${pColor[1]} ${pColor[2]} ${pColor[3]} ${pColor[4]} k`; }
+		return null;
+	}
+
+	/**
+	 * Return a copy of the template PDF with the given fields' /DA text color set (so a subsequent
+	 * pdftk fill regenerates their appearance in that color). Only the /DA color operator is changed;
+	 * font/size and everything else are preserved.
+	 *
+	 * @param {string} pTemplatePDFPath
+	 * @param {Object} pColorsMap - fieldName -> Acrobat color array
+	 * @returns {Promise<Buffer>} the patched PDF bytes
+	 */
+	async applyFieldColors(pTemplatePDFPath, pColorsMap)
+	{
+		const libPDFLib = require('pdf-lib');
+		const tmpBytes = libFS.readFileSync(pTemplatePDFPath);
+		const tmpDocument = await libPDFLib.PDFDocument.load(tmpBytes, { ignoreEncryption: true, updateMetadata: false });
+		const tmpForm = tmpDocument.getForm();
+
+		const tmpByName = {};
+		const tmpFields = tmpForm.getFields();
+		for (let i = 0; i < tmpFields.length; i++)
+		{
+			let tmpName = '';
+			try { tmpName = tmpFields[i].getName(); }
+			catch (pError) { tmpName = ''; }
+			if (tmpName) { tmpByName[tmpName] = tmpFields[i]; }
+		}
+
+		const tmpNames = Object.keys(pColorsMap || {});
+		for (let i = 0; i < tmpNames.length; i++)
+		{
+			const tmpName = tmpNames[i];
+			const tmpOperator = this._colorOperator(pColorsMap[tmpName]);
+			if (!tmpOperator) { continue; }
+			const tmpField = tmpByName[tmpName];
+			if (!tmpField) { continue; }
+
+			const tmpDict = tmpField.acroField.dict;
+			let tmpDA = '';
+			const tmpDAObj = tmpDict.get(libPDFLib.PDFName.of('DA'));
+			if (tmpDAObj)
+			{
+				try { tmpDA = (typeof(tmpDAObj.decodeText) === 'function') ? tmpDAObj.decodeText() : tmpDAObj.asString(); }
+				catch (pError) { tmpDA = ''; }
+			}
+			let tmpNewDA;
+			if (/\bTf\b/.test(tmpDA)) { tmpNewDA = tmpDA.replace(/(\bTf\b)[\s\S]*/, `$1 ${tmpOperator}`); }
+			else { tmpNewDA = (tmpDA ? `${tmpDA} ` : '') + tmpOperator; }
+			tmpDict.set(libPDFLib.PDFName.of('DA'), libPDFLib.PDFString.of(tmpNewDA));
+		}
+
+		const tmpOut = await tmpDocument.save({ updateFieldAppearances: false });
+		return Buffer.from(tmpOut);
+	}
+
+	/**
+	 * Full "act like Acrobat" pass over a template: run the calculation chain, then the format and
+	 * validate scripts, seeded with the caller's input values.
+	 *
+	 * @param {string} pTemplatePDFPath
+	 * @param {Object} pSeedValues - fieldName -> value (the mapped input values)
+	 * @param {Array<string>} [pTouchedNames] - the fields being written (for format/validate scope)
+	 * @param {Object} [pOptions]
+	 * @returns {Promise<{Values:Object, Computed:Array, Skipped:Array, DisplayValues:Object, Colors:Object, Rejected:Array, Warnings:Array}>}
+	 */
+	async computeAll(pTemplatePDFPath, pSeedValues, pTouchedNames, pOptions)
+	{
+		const tmpBytes = libFS.readFileSync(pTemplatePDFPath);
+		const tmpModel = await this.extractCalcModel(tmpBytes);
+		const tmpCalc = this.runCalculations(tmpModel, pSeedValues || {}, pOptions);
+		const tmpFinalValues = Object.assign({}, tmpModel.Values || {}, pSeedValues || {}, tmpCalc.Values || {});
+
+		// Format/validate scope = the caller's touched fields plus everything the calc chain produced.
+		let tmpTouched = Array.isArray(pTouchedNames) ? pTouchedNames.slice() : [];
+		for (let i = 0; i < (tmpCalc.Computed || []).length; i++)
+		{
+			if (tmpTouched.indexOf(tmpCalc.Computed[i]) < 0) { tmpTouched.push(tmpCalc.Computed[i]); }
+		}
+		const tmpFV = this.runFormatAndValidate(tmpModel, tmpFinalValues, (tmpTouched.length > 0 ? tmpTouched : undefined), pOptions);
+		return {
+			Values: tmpCalc.Values,
+			Computed: tmpCalc.Computed,
+			Skipped: tmpCalc.Skipped,
+			DisplayValues: tmpFV.DisplayValues,
+			Colors: tmpFV.Colors,
+			Rejected: tmpFV.Rejected,
+			Warnings: (tmpCalc.Warnings || []).concat(tmpFV.Warnings || [])
+		};
 	}
 }
 

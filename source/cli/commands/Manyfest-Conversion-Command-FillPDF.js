@@ -18,6 +18,8 @@ class ManyfestConversionCommandFillPDF extends libCommandLineCommand
 		this.options.CommandOptions.push({ Name: '-r, --source-root [address]', Description: 'Override the mapping manyfest SourceRootAddress.' });
 		this.options.CommandOptions.push({ Name: '--sidecar [filepath]', Description: 'Sidecar report path.  Defaults to <output>.report.json.' });
 		this.options.CommandOptions.push({ Name: '--no-calculate', Description: 'Do not run the form\'s embedded calculation scripts (leave derived cells uncomputed).' });
+		this.options.CommandOptions.push({ Name: '--no-format', Description: 'Do not run the form\'s format scripts (leave values unformatted for display).' });
+		this.options.CommandOptions.push({ Name: '--no-colors', Description: 'Do not run the form\'s validate scripts to set field text colors.' });
 
 		this.addCommand();
 	}
@@ -119,7 +121,11 @@ class ManyfestConversionCommandFillPDF extends libCommandLineCommand
 				tmpReport,
 				this.fable.ConversionReport,
 				this.fable.PDFFormCalculator,
-				{ Calculate: tmpCalculate });
+				{
+					Calculate: tmpCalculate,
+					Format: (this.CommandOptions.format !== false),
+					Colors: (this.CommandOptions.colors !== false)
+				});
 		}
 		catch (pError)
 		{

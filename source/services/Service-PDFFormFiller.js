@@ -499,14 +499,17 @@ class PDFFormFiller extends libFableServiceProviderBase
 	}
 
 	/**
-	 * End-to-end fill that ALSO runs the template's own embedded calculation JavaScript, so derived
-	 * cells compute exactly as they would if a user filled the form in Acrobat.
+	 * End-to-end fill that ALSO runs the template's own embedded JavaScript -- the three standard
+	 * AcroForm field actions -- so the output looks exactly as if a person filled it in Acrobat:
+	 *   - Calculate (/AA/C, in /CO order): derived cells compute from the inputs;
+	 *   - Format   (/AA/F): values are displayed formatted (thousands, decimals, currency, dates...);
+	 *   - Validate (/AA/V): validate scripts set each field's text color (e.g. red when out of spec).
 	 *
-	 * Flow: resolve the mapped (input) values, run the form's `/CO` calculation chain seeded with them
-	 * via the PDFFormCalculator, merge the computed values over the mapped ones (a calculated field is
-	 * authoritative, as in Acrobat), then build the XFDF and run pdftk.
-	 *
-	 * A calculation failure is a warning, never fatal: the fill still produces the mapped values.
+	 * Flow: resolve the mapped (input) values, run the form's scripts via the PDFFormCalculator, merge
+	 * calculated (raw) values over the mapped ones, apply the format display strings, patch validate-
+	 * driven colors into the template `/DA`, then build the XFDF and run pdftk. None of this is
+	 * form-specific -- it runs whatever scripts the template defines through a generic (pdf.js-ported)
+	 * Acrobat Forms API. A script failure is a warning, never fatal: the fill still produces the values.
 	 *
 	 * @param {object} pMappingManyfest - Live Manyfest instance
 	 * @param {object} pSourceData - The platform JSON payload
@@ -514,8 +517,8 @@ class PDFFormFiller extends libFableServiceProviderBase
 	 * @param {string} pOutputPDFPath
 	 * @param {object} pReport - ConversionReport to annotate
 	 * @param {object} pConversionReportService
-	 * @param {object} pCalculator - A PDFFormCalculator instance (required for the calculation pass)
-	 * @param {object} [pOptions] - { Calculate=true, MaxPasses, TimeoutMS }
+	 * @param {object} pCalculator - A PDFFormCalculator instance (required for the script pass)
+	 * @param {object} [pOptions] - { Calculate=true, Format=true, Colors=true, MaxPasses, TimeoutMS }
 	 * @returns {Promise<object>} the (same) report, with stats finalized
 	 */
 	async fillPDFWithCalculations(pMappingManyfest, pSourceData, pTemplatePDFPath, pOutputPDFPath, pReport, pConversionReportService, pCalculator, pOptions)
@@ -531,37 +534,59 @@ class PDFFormFiller extends libFableServiceProviderBase
 
 		const tmpResolved = this.resolveMappedValues(pMappingManyfest, pSourceData, pReport, pConversionReportService);
 		const tmpFields = tmpResolved.Fields.slice();
+		let tmpColors = {};
 
-		// Run the form's own calculation scripts, seeded with the resolved input values.
+		// Run the form's own scripts (calculate, then format + validate), seeded with the resolved
+		// inputs -- exactly the actions Acrobat runs -- so derived values, display formatting, and
+		// validate-driven colors all come out "like Acrobat".
 		if (pCalculator && tmpOptions.Calculate !== false)
 		{
 			try
 			{
-				const tmpCalcResult = await pCalculator.computeCalculatedFields(pTemplatePDFPath, tmpResolved.ValueMap, tmpOptions);
-				const tmpComputedNames = Object.keys(tmpCalcResult.Values || {});
+				const tmpTouched = tmpFields.map((pField) => pField.FieldName);
+				const tmpResult = await pCalculator.computeAll(pTemplatePDFPath, tmpResolved.ValueMap, tmpTouched, tmpOptions);
+
 				const tmpIndexByName = {};
-				for (let i = 0; i < tmpFields.length; i++)
-				{
-					tmpIndexByName[tmpFields[i].FieldName] = i;
-				}
+				for (let i = 0; i < tmpFields.length; i++) { tmpIndexByName[tmpFields[i].FieldName] = i; }
+
+				// (1) Merge the calculated (raw) values. A calculated field is authoritative, as in Acrobat.
+				const tmpComputedNames = Object.keys(tmpResult.Values || {});
 				for (let i = 0; i < tmpComputedNames.length; i++)
 				{
 					const tmpName = tmpComputedNames[i];
-					const tmpValue = tmpCalcResult.Values[tmpName];
+					const tmpValue = tmpResult.Values[tmpName];
 					if (Object.prototype.hasOwnProperty.call(tmpIndexByName, tmpName))
 					{
-						// A calculated field is authoritative (Acrobat recomputes it), so override the mapped value.
 						tmpFields[tmpIndexByName[tmpName]].Value = tmpValue;
 					}
 					else
 					{
 						tmpFields.push({ FieldName: tmpName, Value: tmpValue });
+						tmpIndexByName[tmpName] = tmpFields.length - 1;
 					}
 					pConversionReportService.logSuccess(pReport, tmpName, '(calculated by form JavaScript)', tmpValue);
 				}
 
+				// (2) Apply Format (display) results -- the value pdftk renders becomes the formatted string.
+				if (tmpOptions.Format !== false)
+				{
+					const tmpDisplay = tmpResult.DisplayValues || {};
+					const tmpDisplayNames = Object.keys(tmpDisplay);
+					for (let i = 0; i < tmpDisplayNames.length; i++)
+					{
+						const tmpName = tmpDisplayNames[i];
+						if (Object.prototype.hasOwnProperty.call(tmpIndexByName, tmpName))
+						{
+							tmpFields[tmpIndexByName[tmpName]].Value = tmpDisplay[tmpName];
+						}
+					}
+				}
+
+				// (3) Capture Validate-driven text colors (applied to the template's /DA below).
+				if (tmpOptions.Colors !== false) { tmpColors = tmpResult.Colors || {}; }
+
 				// Surface any field that HAS a calc script but could not be evaluated — never a silent blank.
-				const tmpSkipped = Array.isArray(tmpCalcResult.Skipped) ? tmpCalcResult.Skipped : [];
+				const tmpSkipped = Array.isArray(tmpResult.Skipped) ? tmpResult.Skipped : [];
 				for (let s = 0; s < tmpSkipped.length; s++)
 				{
 					pConversionReportService.logWarning(pReport, tmpSkipped[s].Field, '(calculation)', `Field has a calculation script that could not be evaluated: ${tmpSkipped[s].Message}`);
@@ -569,7 +594,28 @@ class PDFFormFiller extends libFableServiceProviderBase
 			}
 			catch (pError)
 			{
-				pConversionReportService.logWarning(pReport, null, null, `Calculation pass failed; filled mapped values only: ${pError.message}`);
+				pConversionReportService.logWarning(pReport, null, null, `Script pass failed; filled mapped values only: ${pError.message}`);
+			}
+		}
+
+		// Patch validate-driven text colors into the template's /DA so pdftk regenerates each affected
+		// field's appearance in the right color. Only fields whose validate script set a color are touched.
+		let tmpTemplateForFill = pTemplatePDFPath;
+		let tmpColorTempDir = null;
+		if (pCalculator && Object.keys(tmpColors).length > 0)
+		{
+			try
+			{
+				const tmpPatchedBytes = await pCalculator.applyFieldColors(pTemplatePDFPath, tmpColors);
+				tmpColorTempDir = libFS.mkdtempSync(libPath.join(libOS.tmpdir(), 'mfconv-da-'));
+				tmpTemplateForFill = libPath.join(tmpColorTempDir, 'template-colored.pdf');
+				libFS.writeFileSync(tmpTemplateForFill, tmpPatchedBytes);
+			}
+			catch (pError)
+			{
+				pConversionReportService.logWarning(pReport, null, null, `Could not apply field colors: ${pError.message}`);
+				tmpTemplateForFill = pTemplatePDFPath;
+				tmpColorTempDir = null;
 			}
 		}
 
@@ -577,13 +623,21 @@ class PDFFormFiller extends libFableServiceProviderBase
 
 		try
 		{
-			this.writeAndRunPDFTK(pTemplatePDFPath, tmpBuild.xfdf, pOutputPDFPath);
+			this.writeAndRunPDFTK(tmpTemplateForFill, tmpBuild.xfdf, pOutputPDFPath);
 		}
 		catch (pError)
 		{
 			pConversionReportService.logError(pReport, null, null, `PDF fill failed: ${pError.message}`);
 			pConversionReportService.finalize(pReport);
 			throw pError;
+		}
+		finally
+		{
+			if (tmpColorTempDir)
+			{
+				try { libFS.unlinkSync(libPath.join(tmpColorTempDir, 'template-colored.pdf')); } catch (pCleanupError) { /* ignore */ }
+				try { libFS.rmdirSync(tmpColorTempDir); } catch (pCleanupError) { /* ignore */ }
+			}
 		}
 
 		pConversionReportService.finalize(pReport);
